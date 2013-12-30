@@ -23,3 +23,19 @@ snippet     lastmod
 abbr        Last modified time
 alias       lmod
     Last Modified: `strftime("%Y-%m-%dT%H:%M:%S")`
+
+snippet     filename
+alias       fname
+options     word
+    `bufname('%') =='[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r')`${0}
+
+snippet     filename_upper_camel
+alias       fnameuc
+options     word
+    `substitute(bufname('%') =='[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r'), '\%(^\(.\)\|_\(.\)\)', '\u\1\u\2', 'g')`${0}
+
+snippet     filename_lower_camel
+alias       fnamelc
+options     word
+    `substitute(bufname('%') =='[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r'), '\%(_\(.\)\)', '\u\1', 'g')`${0}
+
