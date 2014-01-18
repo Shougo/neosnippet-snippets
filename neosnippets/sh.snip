@@ -69,12 +69,12 @@ options     head
 
 snippet     case
 options     head
-	case "$${1:{name}}" in
+	case "$${1:{name\}}" in
 		${2:pattern*})
 			${0}
 			;;
 		*)
-			${3:echo "$$1\} Didn't match anything"}
+			${3:echo "$$1 Didn't match anything"}
 	esac
 
 snippet     warn
