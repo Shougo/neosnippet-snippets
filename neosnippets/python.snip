@@ -1,14 +1,14 @@
 snippet     class
 abbr        class Class(...): ...
 options     head
-	class ${1:#:name}(${2:#:object}):
+	class ${1:#:name}(${2:object}):
 		def __init__(self, ${3}):
 			${0}
 
 snippet     classd
 abbr        class Class(...): "..."
 options     head
-	class ${1:#:name}(${2:#:object}):
+	class ${1:#:name}(${2:object}):
 		"""${3:#:class documentation}"""
 		def __init__(self, ${4}):
 			"""${5:#:__init__ documentation}"""
@@ -53,15 +53,10 @@ options     head
 		${0}
 
 snippet     fileidiom
-abbr        f = None try: f = open(...) finally: ...
+abbr        with open()
 options     head
-	${1:f} = None
-	try:
-		$1 = open(${2})
+	with open(${1:#:filename}, '${2:#:mode}') as ${3:f}:
 		${0:TARGET}
-	finally:
-	if $1:
-		$1.close()
 
 snippet     for
 abbr        for ... in ...: ...
@@ -105,9 +100,9 @@ options     head
 		${0:TARGET}
 
 snippet     with
-abbr        with open({file}) as :
+abbr        with {func}({file}) as :
 options     head
-	with open(${1:#:filename, mode}) as f:
+	with ${1:open}(${2:#:filename, mode}) as ${3:f}:
 		${0:TARGET}
 
 snippet     filter
