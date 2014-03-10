@@ -79,8 +79,15 @@ alias   de
 snippet try
     try {
         ${0:TARGET}
-    } catch (${1:#:Exception} ${2:e}) {
+    } catch (${1:Exception} ${2:e}) {
         ${3:e.printStackTrace();}
+    }
+
+snippet try_resources
+    try (${1:#:Resources}){
+        ${0:TARGET}
+    } catch (${2:Exception} ${3:e}) {
+        ${4:e.printStackTrace();}
     }
 
 snippet try_finally
