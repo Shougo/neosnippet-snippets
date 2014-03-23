@@ -20,3 +20,31 @@ snippet dir
 		${0}
 	</Directory>
 
+snippet ifmodule
+        <IfModule ${1:module_name}>
+                ${2}
+        </IfModule>
+
+snippet if
+        <If ${1:condition}>
+                ${2}
+        </If>
+
+snippet RemoteIPHeader
+        RemoteIPHeader X-Forwarded-For
+
+snippet location
+        <Location ${1:location}>
+                ${2:config}
+        </Location>
+
+snippet locationmatch
+        <LocationMatch "${1:regex}">
+                ${2:config}
+        </LocationMatch>
+
+snippet directoryindex
+        DirectoryIndex index.php index.html
+
+snippet require
+        Require all granted
