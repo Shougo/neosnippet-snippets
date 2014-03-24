@@ -39,11 +39,12 @@ abbr        { ... }
 
 snippet     blockvar
 abbr        {|var| ... }
-  {|${1:#:var}|
+  { |${1:#:var}|
     ${2:TARGET}
   }
 
 snippet     fileopen
+alias       open
 abbr        File.open(filename) do ... end
   File.open(${1:#:filename}, '${2:#:mode}') do |${3:io}|
     ${0:TARGET}
@@ -65,7 +66,7 @@ alias   enc
 
 snippet each
 options word
-  each {|${1:#:variable}| ${2} }
+  each { |${1:#:variable}| ${2} }
 
 snippet each_do
 options word
@@ -75,39 +76,39 @@ options word
 
 snippet each_byte
 options word
-  each_byte {|${1:#:variable}| ${2} }
+  each_byte { |${1:#:variable}| ${2} }
 
 snippet each_char
 options word
-  each_char {|${1:#:variable}| ${2} }
+  each_char { |${1:#:variable}| ${2} }
 
 snippet each_index
 options word
-  each_index {|${1:#:variable}| ${2} }
+  each_index { |${1:#:variable}| ${2} }
 
 snippet each_key
 options word
-  each_key {|${1:#:variable}| ${2} }
+  each_key { |${1:#:variable}| ${2} }
 
 snippet each_line
 options word
-  each_line {|${1:#:variable}| ${2} }
+  each_line { |${1:#:variable}| ${2} }
 
 snippet each_with_index
 options word
-  each_with_index {|${1:#:variable}| ${2} }
+  each_with_index { |${1:#:variable}| ${2} }
 
 snippet map
 options word
-  map {|${1:#:variable}| ${2} }
+  map { |${1:#:variable}| ${2} }
 
 snippet sort
 options word
-  sort {|${1:#:variable}| ${2} }
+  sort { |${1:#:variable}| ${2} }
 
 snippet sort_by
 options word
-  sort_by {|${1:#:variable}| ${2} }
+  sort_by { |${1:#:variable}| ${2} }
 
 snippet lambda
 options word
@@ -115,7 +116,7 @@ options word
 
 snippet lambda-keyword
 options word
-  lambda {|${1:#:args}| ${2} }
+  lambda { |${1:#:args}| ${2} }
 
 snippet     main
 options     head
