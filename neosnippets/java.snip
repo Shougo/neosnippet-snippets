@@ -84,7 +84,7 @@ snippet try
     }
 
 snippet try_resources
-    try (${1:#:Resources}){
+    try (${1:#:Resources}) {
         ${0:TARGET}
     } catch (${2:Exception} ${3:e}) {
         ${4:e.printStackTrace();}
