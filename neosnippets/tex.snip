@@ -182,11 +182,9 @@ alias   \begin{document} \document
 snippet figure
 alias   \begin{figure} \figure
 	\begin{figure}
-		\begin{center}
-			\includegraphics[${1:width=}]{${2}}
-			\caption{${3}}
-			\label{${4}}
-		\end{center}
+		\centering
+		\includegraphics[${1:width=}]{${2}}
+		\caption{${3} \label{${4}}}
 	\end{figure}
 
 snippet filecontents
