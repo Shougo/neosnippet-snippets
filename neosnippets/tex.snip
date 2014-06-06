@@ -143,6 +143,18 @@ alias   \begin{abstract} \abstract
 		${1:TARGET}
 	\end{abstract}
 
+snippet align
+alias   \begin{align} \align
+	\begin{align}
+		${1:TARGET}
+	\end{align}
+
+snippet align*
+alias   \begin{align*} \align*
+	\begin{align*}
+		${1:TARGET}
+	\end{align*}
+
 snippet eqnarray
 alias   \begin{eqnarray} \eqnarray
 	\begin{eqnarray}
@@ -154,12 +166,6 @@ alias   \begin{eqnarray*} \eqnarray*
 	\begin{eqnarray*}
 		${1:TARGET}
 	\end{eqnarray*}
-
-snippet appendix
-alias   \begin{appendix} \appendix
-	\begin{appendix}
-		${1:TARGET}
-	\end{appendix}
 
 snippet equation
 alias   \begin{equation} \equation
@@ -188,11 +194,9 @@ alias   \begin{document} \document
 snippet figure
 alias   \begin{figure} \figure
 	\begin{figure}
-		\begin{center}
-			\includegraphics[${1:width=}]{${2}}
-			\caption{${3}}
-			\label{${4}}
-		\end{center}
+		\centering
+		\includegraphics[${1:width=}]{${2}}
+		\caption{${3} \label{${4}}}
 	\end{figure}
 
 snippet filecontents
