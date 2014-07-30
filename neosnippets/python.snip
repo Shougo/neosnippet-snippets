@@ -112,3 +112,15 @@ abbr        [x for x in {list} if {condition}]
 snippet     print
 options     word
   print(${0:TARGET})
+
+snippet     coding
+abbr        # -*- coding ...
+    # -*- coding: utf-8 -*-
+
+snippet     getattr
+abbr        getattr(..., ...)
+    getattr(#:obj, #:attr)
+
+snippet     setattr
+abbr        setattr(..., ...)
+    setattr(#:obj, #:attr)
