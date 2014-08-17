@@ -1,0 +1,50 @@
+snippet     mot
+abbr        module signature
+options     head
+    module type ${1} = sig
+      ${2:TARGET}
+    end
+
+snippet     mod
+abbr        module struct
+options     head
+    module struct ${1} = sig
+      ${2:TARGET}
+    end
+
+snippet     cc
+abbr        comment
+    (* ${1:TARGET} *)
+
+snippet     if
+abbr        if..then..else
+    if ${1:TARGET}
+    then ${2}
+    else ${3}
+
+snippet     let
+abbr        let..in
+    let ${1:TARGET} in
+    ${0}
+
+snippet     match
+abbr        match
+    match ${1:TARGET} in
+    | ${2} -> ${0}
+
+snippet     obj
+abbr        object
+    object
+      ${0:TARGET}
+    end
+
+snippet     try
+abbr        try..with
+    try #{1:TARGET}
+    with ${0}
+
+snippet     lopen
+abbr        let open .. in
+options     head
+    let open ${1} in
+    ${2:TARGET}
