@@ -26,19 +26,19 @@ snippet echoh
 snippet pforeach
 	<?$php foreach ($${1:#:variable} as $${2:#:key}${3: =>}): ?>
 	${0:TARGET}
-	<?php endforeach ?>
+	<?php endforeach; ?>
 
 snippet pifelse
 	<?php if (${1:#:condition}): ?>
 	${2:TARGET}
 	<?php else: ?>
 	${0}
-	<?php endif ?>
+	<?php endif; ?>
 
 snippet pif
 	<?php if (${1:#:condition}): ?>
 	${0:TARGET}
-	<?php endif ?>
+	<?php endif; ?>
 
 snippet pelse
 	<?php else: ?>
