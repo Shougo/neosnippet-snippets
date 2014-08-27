@@ -225,3 +225,12 @@ snippet     p
 abbr        debug-echomsg
 options     head
   echomsg string([${0:TARGET}])
+
+snippet     version
+abbr        vim-version-check
+        v:version > ${1} || (v:version == $1 && has('patch${2}'))
+
+snippet     version_new
+abbr        vim-version-check-new
+        has('patch-${1}')
+
