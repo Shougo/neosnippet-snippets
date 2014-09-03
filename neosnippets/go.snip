@@ -49,3 +49,16 @@ options     head
   type ${1} interface {
     ${0:TARGET}
   }
+
+snippet     for
+options     head
+  for ${1} {
+    ${0:TARGET}
+  }
+
+snippet     if
+options     head
+    if ${1:err != nil} {
+        ${0:TARGET}
+    }
+
