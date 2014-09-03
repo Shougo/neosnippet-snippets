@@ -24,10 +24,18 @@ alias   \begin{quotation} \quotation
 	\end{quotation}
 
 snippet description
-alias   \begin{description} \description
+alias   \begin{description} \description desc
 	\begin{description}
-		\item ${1:TARGET}
+		\item[${1}] ${0}
 	\end{description}
+
+snippet itd
+alias   item[ \item[
+	\item[${1}] ${0}
+
+snippet it
+alias   item \item
+	\item $0
 
 snippet sloppypar
 alias   \begin{sloppypar} \sloppypar
@@ -36,7 +44,7 @@ alias   \begin{sloppypar} \sloppypar
 	\end{sloppypar}
 
 snippet enumerate
-alias   \begin{enumerate} \enumerate
+alias   \begin{enumerate} \enumerate enum
 	\begin{enumerate}
 		\item ${1:TARGET}
 	\end{enumerate}
