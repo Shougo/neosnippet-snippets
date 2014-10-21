@@ -102,6 +102,12 @@ snippet each_pair
 options word
   each_pair{ |${1:#:key},${2:value}| ${3} }
 
+snippet each_pair_do
+options word
+  each_pair |${1:key},${2:value}| do
+    ${3}
+  end
+
 snippet map
 options word
   map { |${1:#:variable}| ${2} }
