@@ -16,6 +16,10 @@ snippet     cc
 abbr        comment
     (* ${1:TARGET} *)
 
+snippet     oo
+abbr        ocamldoc comment (** .. *)
+    (** ${1:TARGET} *)
+
 snippet     if
 abbr        if..then..else
     if ${1:TARGET}
@@ -48,3 +52,17 @@ abbr        let open .. in
 options     head
     let open ${1} in
     ${2:TARGET}
+
+snippet     for
+abbr        for i=x..y do; ... done
+options     head
+    for ${1:i} = ${2:0} to ${3:10} do
+      ${0:TARGET}
+    done
+
+snippet     while
+abbr        while ... do; ... done
+options     head
+    while ${1:true} do
+      ${2:TARGET}
+    done
