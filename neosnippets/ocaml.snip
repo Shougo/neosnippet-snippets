@@ -28,8 +28,14 @@ abbr        if..then..else
 
 snippet     let
 abbr        let..in
-    let ${1:TARGET} in
-    ${0}
+    let ${1:TARGET}
+    in ${0}
+
+snippet     letr
+abbr        let rec .. in
+options     head
+    let rec ${1:TARGET}
+    in ${0}
 
 snippet     match
 abbr        match
@@ -66,3 +72,11 @@ options     head
     while ${1:true} do
       ${2:TARGET}
     done
+
+snippet     fun
+abbr        (fun x -> ...)
+    (fun ${1:x} -> ${2:x})
+
+snippet     arl
+abbr        array literal [| |]
+    [| ${0:TARGET} |]
