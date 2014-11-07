@@ -56,9 +56,36 @@ options     head
     ${0:TARGET}
   }
 
+snippet     range
+abbr        for range
+options     head
+  for ${1:v} := range ${2:#:iterator} {
+    ${0:TARGET}
+  }
+
 snippet     if
 options     head
     if ${1:err != nil} {
         ${0:TARGET}
     }
 
+snippet     switch
+abbr        switch {}
+options     head
+  switch ${1:#:v} {
+  case ${2:#:condition}:
+    ${0:TARGET}
+  }
+
+snippet     select
+abbr        select {}
+options     head
+  select {
+  case ${1:#:condition}:
+    ${0:TARGET}
+  }
+
+snippet     case
+options     head
+  case ${1:#:condition}:
+    ${2:TARGET}
