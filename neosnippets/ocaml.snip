@@ -39,7 +39,7 @@ options     head
 
 snippet     match
 abbr        match
-    match ${1:TARGET} in
+    match ${1:TARGET} with
     | ${2} -> ${0}
 
 snippet     obj
@@ -80,3 +80,12 @@ abbr        (fun x -> ...)
 snippet     arl
 abbr        array literal [| |]
     [| ${0:TARGET} |]
+
+snippet     fail
+abbr        failwith "..."
+    failwith "${0:TODO}"
+
+snippet     exn
+abbr        exception
+options     head
+    exception ${0:TARGET} of ${1:string}
