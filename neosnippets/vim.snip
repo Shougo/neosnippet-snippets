@@ -37,7 +37,7 @@ snippet     function
 abbr        func endfunc
 alias       func
 options     head
-    function! ${1:#:func_name}(${2})
+    function! ${1:#:func_name}(${2}) abort
       ${0:TARGET}
     endfunction
 
@@ -78,7 +78,7 @@ options     head
 snippet     customlist
 abbr        customlist complete function
 options     head
-    function! ${1:#:func_name}(arglead, cmdline, cursorpos)
+    function! ${1:#:func_name}(arglead, cmdline, cursorpos) abort
       return filter(${2:#:list}, 'stridx(v:val, a:arglead) == 0')
     endfunction
 
@@ -112,7 +112,7 @@ abbr NeoBundleLazy ''
 snippet bundle_hooks
 abbr neobundle hooks
     let s:hooks = neobundle#get_hooks('${1}')
-    function! s:hooks.on_source(bundle)
+    function! s:hooks.on_source(bundle) abort
       ${0}
     endfunction
     unlet s:hooks
@@ -121,7 +121,7 @@ snippet     autoload
 abbr        autoload func endfunc
 alias       afunction afunc
 options     head
-    function! `substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:func_name}(${2:#:args})
+    function! `substitute(matchstr(neosnippet#util#expand('%:p:r'), '/autoload/\zs.*$'), '/', '#', 'g')`#${1:#:func_name}(${2:#:args}) abort
       ${0}
     endfunction
 
