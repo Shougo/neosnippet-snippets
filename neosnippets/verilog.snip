@@ -1,0 +1,46 @@
+snippet al
+abbr always @()
+    always @(${1:*})${2:TARGET}
+
+snippet beginend
+    begin
+        ${1:TARGET}
+    end
+
+snippet module
+    module ${1:name}(
+        ${2:TARGET}
+    );
+    endmodule
+
+snippet rw
+abbr reg [] _r, _w;
+    reg${1:#: nbit} ${2:reg}_r, $2_w;${3:TARGET}
+
+snippet I
+abbr input [] i_,
+    input${1:#: nbit} i_${2:name},
+
+snippet O
+abbr output [] o_,
+    output${1:#: nbit} o_${2:name},
+
+snippet IO
+abbr inout [] io_,
+    inout${1:#: nbit} io_${2:name},
+
+snippet regseq
+abbr _r <= _w;
+    ${1:reg}_r <= $1_w;${2:TARGET}
+
+snippet regkeep
+abbr _w = _r
+    ${1:reg}_w = $1_r;${2:TARGET}
+
+snippet case
+    case (${1}) begin
+        ${2:'b0}: begin
+            ${3}
+        end
+    end
+
