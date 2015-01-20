@@ -72,3 +72,10 @@ snippet console-log
 alias cl
 options head
   console.log(${0:TARGET});
+  
+snippet iife
+options head
+  (function(${1}) {
+    'use strict';
+    ${0:TARGET}
+  })(${2});
