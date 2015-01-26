@@ -35,7 +35,7 @@ alias   item[ \item[
 
 snippet it
 alias   item \item
-	\item $0
+	\item ${0}
 
 snippet sloppypar
 alias   \begin{sloppypar} \sloppypar
@@ -348,6 +348,38 @@ alias   \begin{itshape} \itshape
 	\begin{itshape}
 		${1:TARGET}
 	\end{itshape}
+
+# ==== BEAMER ====
+snippet frame
+alias  \begin{frame} \frame
+    \begin{frame}{${1:#:frametitle}}
+        ${2:TARGET}
+    \end{frame}
+
+snippet block
+alias \begin{block}
+    \begin{block}{${1:#:title}}
+        ${2:TARGET}
+    \end{block}
+
+snippet exampleblock
+alias \begin{exampleblock}
+    \begin{exampleblock}{${1:#:title}}
+        ${2:TARGET}
+    \end{exampleblock}
+
+snippet alertblock
+alias \begin{alertblock}
+    \begin{alertblock}{${1:#:title}}
+        ${2:TARGET}
+    \end{alertblock}
+
+snippet tikzpicture
+alias \begin{tikzpicture}
+    \begin{tikzpicture}
+        ${1:TARGET}
+    \end{tikzpicture}
+
 
 # ========== OTHERS ==========
 snippet usepackage
