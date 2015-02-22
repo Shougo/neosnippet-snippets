@@ -33,6 +33,10 @@ snippet     path
 options     word
     `substitute(bufname('%') ==#'[Command Line]' ? expand('#:p') : expand('%:p'), '\(\/\/*\|\/*$\)', '\/', 'g')`${0}
 
+snippet     rpath
+options     word
+    `substitute(bufname('%') ==#'[Command Line]' ? expand('#:h') : expand('%:h'), '\(\/\/*\|\/*$\)', '\/', 'g')`${0}
+
 snippet     basename
 alias       bname
 options     word
