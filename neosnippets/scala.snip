@@ -68,7 +68,7 @@ options     head
 
 snippet     package
 options     head
-	package `substitute(substitute(expand('%:h'), '^src/main/scala/', '', ''), '/', '.', 'g')`
+	package `substitute(substitute(expand('%:h'), '.*\<src/\(main\|test\)/scala/', '', ''), '/', '.', 'g')`
 
 # scala's indent plugin doesn't work well. use hard-tab for this snippet.
 # vim: set noexpandtab :
