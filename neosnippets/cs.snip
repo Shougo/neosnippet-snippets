@@ -53,10 +53,10 @@ alias   prop
     ${1:int} ${2:#:Name} { get${3:;} ${4:#:private }set${5:;} }${0}
 
 snippet get
-    get {${0:TARGET}};
+    get {${0:TARGET}}
 
 snippet set
-    set {${0:TARGET}};
+    set {${0:TARGET}}
 
 
 # PreProcess Syntax
@@ -168,18 +168,26 @@ alias   de
 snippet try
     try {
         ${0:TARGET}
+    }
+
+snippet try_catch
+alias   try_c
+    try {
+        ${0:TARGET}
     } catch (${1:Exception} ${2:e}) {
         ${3:Console.WriteLine(e.Message());}
     }
 
-snippet try_n
+snippet try_catch_n
+alias   try_cn
     try {
         ${0:TARGET}
     } catch {
         ${1:Console.WriteLine(e.Message());}
     }
 
-snippet try_finally
+snippet try_catch_finally
+alias   try_cf
     try {
         ${0:TARGET}
     } catch (${1:Exception} ${2:e}) {
@@ -188,7 +196,16 @@ snippet try_finally
         ${4}
     }
 
-snippet try_finally_n
+snippet try_finally
+alias   try_f
+    try {
+        ${0:TARGET}
+    } finally {
+        ${1}
+    }
+
+snippet try_catch_n_finally
+alias   try_cnf
     try {
         ${0:TARGET}
     } catch {
@@ -278,15 +295,17 @@ snippet s.w.f
 # Attribute
 snippet serializable
 alias   serial
+options word
     [SerializableAttribute]
 
 snippet conditional
 alias   cond
-    [Conditional("${0:#:SYMBOL}")]
+    [Conditional("${1:#:SYMBOL}")]${0}
 
 snippet obsolete
-alias   deprecated
-    [Obsolete("${0:#:description}")]
+alias   obs dep deprecated
+    [Obsolete("${1:#:description}")]${0}
+
 
 #XML Document
 snippet c
