@@ -33,18 +33,6 @@ abbr    enum {}
 
 
 # Declare
-snippet var
-    ${1:#:type} ${2:#:var};${0}
-
-snippet const
-    public static const ${1:#:type} ${2:#:var} = ${3:#:val};${0}
-
-snippet const_string
-    public static const string ${1:#:var} = "${2:#:val}";${0}
-
-snippet readonly
-    public readonly ${1:#:type} ${2:#:var} = ${3:#:val};${0}
-
 snippet delegate
     delegate ${1:void} ${2:#:Delegate}(${3:#:arguments});${0}
 
@@ -89,8 +77,9 @@ snippet region
         ${0:TARGET}
     #endregion
 
-snippet pragma
-    #pragma ${1:warning} ${2:disable} ${3:errno}
+snippet pragma_warning
+alias   pragma
+    #pragma warning ${2:disable} ${3:#:errno}
 
 
 # Syntax
@@ -175,7 +164,7 @@ alias   try_c
     try {
         ${0:TARGET}
     } catch (${1:Exception} ${2:e}) {
-        ${3:Console.WriteLine(e.Message());}
+        ${3:Console.WriteLine(e.Message);}
     }
 
 snippet try_catch_n
@@ -183,7 +172,7 @@ alias   try_cn
     try {
         ${0:TARGET}
     } catch {
-        ${1:Console.WriteLine(e.Message());}
+        ${1}
     }
 
 snippet try_catch_finally
@@ -191,7 +180,7 @@ alias   try_cf
     try {
         ${0:TARGET}
     } catch (${1:Exception} ${2:e}) {
-        ${3:Console.WriteLine(e.Message());}
+        ${3:Console.WriteLine(e.Message);}
     } finally {
         ${4}
     }
@@ -209,19 +198,19 @@ alias   try_cnf
     try {
         ${0:TARGET}
     } catch {
-        ${1:Console.WriteLine(e.Message());}
+        ${1}
     } finally {
         ${2}
     }
 
 snippet catch
     catch (${1:Exception} ${2:e}) {
-        ${0:Console.WriteLine(e.Message());}
+        ${0:Console.WriteLine(e.Message);}
     }
 
 snippet catch_n
     catch {
-        ${0:Console.WriteLine(e.Message());}
+        ${0}
     }
 
 snippet finally
@@ -288,6 +277,9 @@ snippet s.i
 snippet s.d
     System.Diagnostics
 
+snippet s.r.c
+    System.Runtie.CompilerServices
+
 snippet s.w.f
     System.Windows.Forms
 
@@ -305,6 +297,12 @@ alias   cond
 snippet obsolete
 alias   obs dep deprecated
     [Obsolete("${1:#:description}")]${0}
+
+snippet asm_internals_visible_to
+alias   internals asmInternalsVisibleTo friend_attr
+    #pragma warning disable 0657
+    [assembly: InternalsVisibleTo("${1:#:FriendName}")]
+    #pragma warning restore 0657${0}
 
 
 #XML Document
