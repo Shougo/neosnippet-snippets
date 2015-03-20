@@ -1,22 +1,26 @@
 # Structure
 snippet namespace
-options head
+alias   name
+abbr    namespace {}
     namespace ${1:#:Name} {
         ${0:TARGET}
     }
 
 snippet class
+abbr    class {}
     class ${1:#:Name} ${2::} ${3:Parent}${4:,} ${5:Interface} {
         ${0:TARGET}
     }
 
 snippet struct
-    struct ${1:#:Name} ${2::} ${3::Interface} {
+abbr    struct {}
+    struct ${1:#:Name} ${2::} ${3:Interface} {
         ${0:TARGET}
     }
 
 snippet interface
-    interface ${1:#:IName} ${2::} ${3::Parent} {
+abbr    interface {}
+    interface ${1:#:IName} ${2::} ${3:Parent} {
         ${0:TARGET}
     }
 
@@ -41,10 +45,12 @@ alias   prop
     ${1:int} ${2:#:Name} { get${3:;} ${4:#:private }set${5:;} }${0}
 
 snippet get
-    get {${0:TARGET}}
+abbr    get {}
+    get {${1:TARGET}}${0}
 
 snippet set
-    set {${0:TARGET}}
+abbr    set {}
+    set {${1:TARGET}}${0}
 
 
 # PreProcess Syntax
@@ -73,12 +79,13 @@ snippet line
     #line ${0:#:number}
 
 snippet region
+alias   reg
     #region ${1:#:name}
         ${0:TARGET}
     #endregion
 
 snippet pragma_warning
-alias   pragma
+alias   pragma pragma_warn
     #pragma warning ${2:disable} ${3:#:errno}
 
 
@@ -91,6 +98,7 @@ abbr    if () {}
 
 snippet elseif
 alias   elif
+abbr    else if () {}
     else if (${1:#:condition}) {
         ${0:TARGET}
     }
@@ -99,19 +107,20 @@ snippet ifelse
 alias   ifel
 abbr    if () {} else {}
     if (${1:#:condition}) {
-        ${2:TARGET1}
+        ${2:TARGET}
     } else {
-        ${3:TARGET2}
+        ${3:TARGET}
     }
 
 snippet while
 abbr    while () {}
     while (${1:#:condition}) {
-        ${2:TARGET}
+        ${0:TARGET}
     }
 
 snippet do_while
 alias   dowhile
+abbr    do {} while() {}
     do {
         ${0:TARGET}
     } while (${1:#:condition});
@@ -119,22 +128,22 @@ alias   dowhile
 snippet for
 abbr    for () {}
     for (${1:#:var}; ${2:#:condition}; ${3:#:effect}) {
-        ${4:TARGET}
+        ${0:TARGET}
     }
 
 snippet foreach
 alias   fore
 abbr    foreach () {}
     foreach (${1:#:var} in ${2:#:iter}) {
-        ${3:TARGET}
+        ${0:TARGET}
     }
 
 snippet switch
 abbr    switch () {}
     switch (${1:#:var}) {
-        case ${2:#:val}:
-            ${0:TARGET}
-            break;
+    case ${2:#:val}:
+        ${0:TARGET}
+        break;
     }
 
 snippet case
@@ -146,12 +155,12 @@ snippet br
     break;
 
 snippet goto
-    goto ${1:case} ${2:#:Val};
+    goto case ${1:#:Val};${0}
 
 snippet default
 alias   de
     default:
-        ${1:TARGET}
+        ${0:TARGET}
         break;
 
 snippet try
@@ -161,6 +170,7 @@ snippet try
 
 snippet try_catch
 alias   try_c
+abbr    try {} catch () {}
     try {
         ${0:TARGET}
     } catch (${1:Exception} ${2:e}) {
@@ -169,6 +179,7 @@ alias   try_c
 
 snippet try_catch_n
 alias   try_cn
+abbr    try {} catch {}
     try {
         ${0:TARGET}
     } catch {
@@ -177,6 +188,7 @@ alias   try_cn
 
 snippet try_catch_finally
 alias   try_cf
+abbr    try {} catch () {} finally {}
     try {
         ${0:TARGET}
     } catch (${1:Exception} ${2:e}) {
@@ -187,6 +199,7 @@ alias   try_cf
 
 snippet try_finally
 alias   try_f
+abbr    try {} finally {}
     try {
         ${0:TARGET}
     } finally {
@@ -195,6 +208,7 @@ alias   try_f
 
 snippet try_catch_n_finally
 alias   try_cnf
+abbr    try {} catch {} finally {}
     try {
         ${0:TARGET}
     } catch {
@@ -204,16 +218,20 @@ alias   try_cnf
     }
 
 snippet catch
+abbr    catch () {}
     catch (${1:Exception} ${2:e}) {
         ${0:Console.WriteLine(e.Message);}
     }
 
 snippet catch_n
+abbr    catch {}
     catch {
         ${0}
     }
 
 snippet finally
+alias   fin
+abbr    finally {}
     finally {
         ${0:TARGET}
     }
@@ -222,32 +240,38 @@ snippet th
     throw ${0:#:exception}
 
 snippet lock
+abbr    lock () {}
     lock (${1:#:resource}) {
         ${0:TARGET}
     }
 
 snippet using_resource
 alias   using resource
+abbr    using () {}
     using (${1:#:resource}) {
         ${0:TARGET}
     }
 
 snippet checked
+abbr    checked () {}
     checked (${1:#:var}) {
         ${0:TARGET}
     }
 
 snippet unchecked
+abbr    unchecked () {}
     unchecked (${1:#:var}) {
         ${0:TARGET}
     }
 
 snippet unsafe
+abbr    unsafe {}
     unsafe {
         ${0:TARGET}
     }
 
 snippet fixed
+abbr    fixed () {}
     fixed (${1:#:type}* ${2:#:var} = ${3:#:adress}) {
         ${0:TARGET}
     }
@@ -287,7 +311,6 @@ snippet s.w.f
 # Attribute
 snippet serializable
 alias   serial
-options word
     [SerializableAttribute]
 
 snippet conditional
@@ -300,55 +323,68 @@ alias   obs dep deprecated
 
 snippet asm_internals_visible_to
 alias   internals asmInternalsVisibleTo friend_attr
-    #pragma warning disable 0657
-    [assembly: InternalsVisibleTo("${1:#:FriendName}")]
-    #pragma warning restore 0657${0}
+    [assembly: InternalsVisibleTo("${1:#:FriendName}")]${0}
 
 
 #XML Document
 snippet c
+abbr    <c></c>
     <c>${1:#:text}</c>${0}
 
 snippet code
+abbr    /// <code></code>
     /// <code>${0:#:content}</code>
 
 snippet example
+abbr    /// <example></example>
     /// <example>${0:#:description}</example>
 
 snippet exception
+abbr    /// <exception cref=""></exception>
     /// <exception cref="${1:#:class}">${2:#:description}</exception>${0}
 
 snippet include
+abbr    /// <include file='' path=''/>
     /// <include file='${1:#:filename}' path='${2:#:tabpath}[@${3:#:name}="${4:#:id}"]'/>
 
 snippet param
+abbr    /// <param name=""></param>
     /// <param name="${1:#:name}">${0:#:description}</param>
 
 snippet paramref
+abbr    <paramref name=""/>
     <paramref name="${1:#:name}"/>${0}
 
 snippet returns
+abbr    /// <returns></returns>
     /// <returns>${0:#:description}</returns>
 
 snippet remarks
+abbr    /// <remarks></remarks>
     /// <remarks>${0:#:description}</remarks>
 
 snippet see
+abbr    <see cref=""/>
     <see cref="${1:#:member}"/>${0}
 
 snippet seealso
+abbr    <seealso cref=""/>
     <seealso cref="${1:#:member}"/>${0}
 
 snippet summary
+abbr    /// <summary></summary>
     /// <summary>${0:#:description}</summary>
 
 snippet typeparam
+abbr    /// <typeparam name=""></typeparam>
     /// <typeparam name="${1:#:name}">${0:#:description}</typeparam>
 
 snippet typeparamref
+abbr    <typeparamref name=""/>
     <typeparamref name="${1:#:name}"/>${0}
 
 snippet value
+abbr    /// <value></value>
     /// <value>${0:#:description}</value>
 
 
