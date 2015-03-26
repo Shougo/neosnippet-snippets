@@ -2,35 +2,41 @@
 snippet namespace
 alias   name
 abbr    namespace {}
+options head
     namespace ${1:#:Name} {
         ${0:TARGET}
     }
 
 snippet class
 abbr    class {}
+options head
     class ${1:#:Name} ${2::} ${3:Parent}${4:,} ${5:Interface} {
         ${0:TARGET}
     }
 
 snippet struct
 abbr    struct {}
+options head
     struct ${1:#:Name} ${2::} ${3:Interface} {
         ${0:TARGET}
     }
 
 snippet interface
 abbr    interface {}
+options head
     interface ${1:#:IName} ${2::} ${3:Parent} {
         ${0:TARGET}
     }
 
 snippet method
+options head
     ${1:void} ${2:#:Method}(${3:#:arguments}) {
         ${0:TARGET}
     }
 
 snippet enum
 abbr    enum {}
+options head
     enum ${1:#:Name} {
         ${0:TARGET}
     }
@@ -38,60 +44,73 @@ abbr    enum {}
 
 # Declare
 snippet delegate
+options head
     delegate ${1:void} ${2:#:Delegate}(${3:#:arguments});${0}
 
 snippet property
 alias   prop
+options head
     ${1:int} ${2:#:Name} { get${3:;} ${4:#:private }set${5:;} }${0}
 
 snippet get
 abbr    get {}
+options head
     get {${1:TARGET}}${0}
 
 snippet set
 abbr    set {}
+options head
     set {${1:TARGET}}${0}
 
 
 # PreProcess Syntax
 snippet define
 alias   def
+options head
     #define ${0:#:SYMBOL}
 
 snippet undef
 alias   und
+options head
     #undef ${0:#:SYMBOL}
 
 snippet ifdef
+options head
     #if ${1:SYMBOL}
         ${0:TARGET}
     #endif
 
 snippet warning
 alias   warn
+options head
     #warning ${0:#:message}
 
 snippet error
 alias   err
+options head
     #error ${0:#:message}
 
 snippet line
+options head
     #line ${0:#:number}
 
 snippet region
 alias   reg
+options head
     #region ${1:#:name}
         ${0:TARGET}
     #endregion
 
 snippet pragma_warning
 alias   pragma pragma_warn
+options head
     #pragma warning ${2:disable} ${3:#:errno}
 
 
 # Syntax
 snippet if
 abbr    if () {}
+options head
     if (${1:#:condition}) {
         ${0:TARGET}
     }
@@ -99,6 +118,7 @@ abbr    if () {}
 snippet elseif
 alias   elif
 abbr    else if () {}
+options head
     else if (${1:#:condition}) {
         ${0:TARGET}
     }
@@ -106,6 +126,7 @@ abbr    else if () {}
 snippet ifelse
 alias   ifel
 abbr    if () {} else {}
+options head
     if (${1:#:condition}) {
         ${2:TARGET}
     } else {
@@ -114,6 +135,7 @@ abbr    if () {} else {}
 
 snippet while
 abbr    while () {}
+options head
     while (${1:#:condition}) {
         ${0:TARGET}
     }
@@ -121,12 +143,14 @@ abbr    while () {}
 snippet do_while
 alias   dowhile
 abbr    do {} while() {}
+options head
     do {
         ${0:TARGET}
     } while (${1:#:condition});
 
 snippet for
 abbr    for () {}
+options head
     for (${1:#:var}; ${2:#:condition}; ${3:#:effect}) {
         ${0:TARGET}
     }
@@ -134,12 +158,14 @@ abbr    for () {}
 snippet foreach
 alias   fore
 abbr    foreach () {}
+options head
     foreach (${1:#:var} in ${2:#:iter}) {
         ${0:TARGET}
     }
 
 snippet switch
 abbr    switch () {}
+options head
     switch (${1:#:var}) {
     case ${2:#:val}:
         ${0:TARGET}
@@ -147,30 +173,36 @@ abbr    switch () {}
     }
 
 snippet case
+options head
     case ${1:#:val}:
         ${0:TARGET}
         break;
 
-snippet br
+snippet break
+options head
     break;
 
 snippet goto
+options head
     goto case ${1:#:Val};${0}
 
 snippet default
 alias   de
+options head
     default:
         ${0:TARGET}
         break;
 
-snippet try
+snippet try_without_catch_nor_finally
+options head
     try {
         ${0:TARGET}
     }
 
 snippet try_catch
-alias   try_c
+alias   try
 abbr    try {} catch () {}
+options head
     try {
         ${0:TARGET}
     } catch (${1:Exception} ${2:e}) {
@@ -180,6 +212,7 @@ abbr    try {} catch () {}
 snippet try_catch_n
 alias   try_cn
 abbr    try {} catch {}
+options head
     try {
         ${0:TARGET}
     } catch {
@@ -189,6 +222,7 @@ abbr    try {} catch {}
 snippet try_catch_finally
 alias   try_cf
 abbr    try {} catch () {} finally {}
+options head
     try {
         ${0:TARGET}
     } catch (${1:Exception} ${2:e}) {
@@ -200,6 +234,7 @@ abbr    try {} catch () {} finally {}
 snippet try_finally
 alias   try_f
 abbr    try {} finally {}
+options head
     try {
         ${0:TARGET}
     } finally {
@@ -209,6 +244,7 @@ abbr    try {} finally {}
 snippet try_catch_n_finally
 alias   try_cnf
 abbr    try {} catch {} finally {}
+options head
     try {
         ${0:TARGET}
     } catch {
@@ -219,12 +255,14 @@ abbr    try {} catch {} finally {}
 
 snippet catch
 abbr    catch () {}
+options head
     catch (${1:Exception} ${2:e}) {
         ${0:Console.WriteLine(e.Message);}
     }
 
 snippet catch_n
 abbr    catch {}
+options head
     catch {
         ${0}
     }
@@ -232,15 +270,18 @@ abbr    catch {}
 snippet finally
 alias   fin
 abbr    finally {}
+options head
     finally {
         ${0:TARGET}
     }
 
-snippet th
+snippet throw
+options head
     throw ${0:#:exception}
 
 snippet lock
 abbr    lock () {}
+options head
     lock (${1:#:resource}) {
         ${0:TARGET}
     }
@@ -248,40 +289,47 @@ abbr    lock () {}
 snippet using_resource
 alias   using resource
 abbr    using () {}
+options head
     using (${1:#:resource}) {
         ${0:TARGET}
     }
 
 snippet checked
 abbr    checked () {}
+options head
     checked (${1:#:var}) {
         ${0:TARGET}
     }
 
 snippet unchecked
 abbr    unchecked () {}
+options head
     unchecked (${1:#:var}) {
         ${0:TARGET}
     }
 
 snippet unsafe
 abbr    unsafe {}
+options head
     unsafe {
         ${0:TARGET}
     }
 
 snippet fixed
 abbr    fixed () {}
+options head
     fixed (${1:#:type}* ${2:#:var} = ${3:#:adress}) {
         ${0:TARGET}
     }
 
 snippet using_import
 alias   import
+options head
     using ${1:#:path};${0}
 
 snippet using_typedef
 alias   typedef
+options head
     using ${1:Name} = ${2:Type};${0}
 
 
@@ -311,18 +359,22 @@ snippet s.w.f
 # Attribute
 snippet serializable
 alias   serial
+options head
     [SerializableAttribute]
 
 snippet conditional
 alias   cond
+options head
     [Conditional("${1:#:SYMBOL}")]${0}
 
 snippet obsolete
 alias   obs dep deprecated
+options head
     [Obsolete("${1:#:description}")]${0}
 
 snippet asm_internals_visible_to
 alias   internals asmInternalsVisibleTo friend_attr
+options head
     [assembly: InternalsVisibleTo("${1:#:FriendName}")]${0}
 
 
@@ -390,16 +442,19 @@ abbr    /// <value></value>
 
 # Other
 snippet main
+options head
     public static void Main(string[] args) {
         ${0}
     }
 
 snippet writeline
-alias   println pln
+alias   println p
+options head
     Console.WriteLine(${1:#:message});${0}
 
 snippet write
-alias   print p
+alias   print
+options head
     Console.Write(${1:#:message});${0}
 
 snippet helloworld
@@ -414,6 +469,7 @@ options head
 # NUnit
 snippet testclass
 alias   tc
+options head
     [TestFixture]
     public class ${1}Test {
         ${0:TARGET}
@@ -421,6 +477,7 @@ alias   tc
 
 snippet testsetup
 alias   tsu
+options head
     [SetUp]
     public void SetUp() {
         ${0:TARGET}
@@ -428,16 +485,19 @@ alias   tsu
 
 snippet testteardown
 alias   ttd
+options head
     [TearDown]
     public void TearDown() {
         ${0:TARGET}
     }
 
 snippet test
+options head
     [Test]
     public void ${1:#:Name}Test() {
         ${0:TARGET}
     }
 
 snippet category
+options head
     [Category("${0:#:category}")]
