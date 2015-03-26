@@ -13,6 +13,11 @@ options     head
 		case e${2:: Exception} => ${0}
 	}
 
+snippet     for
+	for {
+		${1}
+	} yield ${2}
+
 snippet     p
 abbr        println()
 	println(${1})
@@ -24,8 +29,10 @@ abbr        println('name, name)
 snippet     main
 abbr        def main(args: Array[String]) {
 options     head
-	def main(args: Array[String]) {
-		${0:TARGET}
+	object ${1:HelloWorld} {
+		def main(args: Array[String]) {
+			${0:TARGET}
+		}
 	}
 
 snippet     hello
