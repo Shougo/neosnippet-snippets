@@ -19,3 +19,14 @@ options     word
 snippet     main
 options     head
   main(_) -> ${0}.
+
+snippet     case
+abbr        case
+options     head
+    case ${0:TARGET} of
+        ${1}
+    end
+
+snippet     bs
+abbr        <<"...">>
+    <<"${0:TARGET}">>
