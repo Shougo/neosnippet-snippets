@@ -9,34 +9,29 @@ options head
 
 snippet class
 abbr    class {}
-options head
     class ${1:#:Name} ${2::} ${3:Parent}${4:,} ${5:Interface} {
         ${0:TARGET}
     }
 
 snippet struct
 abbr    struct {}
-options head
     struct ${1:#:Name} ${2::} ${3:Interface} {
         ${0:TARGET}
     }
 
 snippet interface
 abbr    interface {}
-options head
     interface ${1:#:IName} ${2::} ${3:Parent} {
         ${0:TARGET}
     }
 
 snippet method
-options head
     ${1:void} ${2:#:Method}(${3:#:arguments}) {
         ${0:TARGET}
     }
 
 snippet enum
 abbr    enum {}
-options head
     enum ${1:#:Name} {
         ${0:TARGET}
     }
@@ -44,22 +39,18 @@ options head
 
 # Declare
 snippet delegate
-options head
     delegate ${1:void} ${2:#:Delegate}(${3:#:arguments});${0}
 
 snippet property
 alias   prop
-options head
     ${1:int} ${2:#:Name} { get${3:;} ${4:#:private }set${5:;} }${0}
 
 snippet get
 abbr    get {}
-options head
     get {${1:TARGET}}${0}
 
 snippet set
 abbr    set {}
-options head
     set {${1:TARGET}}${0}
 
 
@@ -110,7 +101,6 @@ options head
 # Syntax
 snippet if
 abbr    if () {}
-options head
     if (${1:#:condition}) {
         ${0:TARGET}
     }
@@ -118,7 +108,6 @@ options head
 snippet elseif
 alias   elif
 abbr    else if () {}
-options head
     else if (${1:#:condition}) {
         ${0:TARGET}
     }
@@ -126,7 +115,6 @@ options head
 snippet ifelse
 alias   ifel
 abbr    if () {} else {}
-options head
     if (${1:#:condition}) {
         ${2:TARGET}
     } else {
@@ -135,7 +123,6 @@ options head
 
 snippet while
 abbr    while () {}
-options head
     while (${1:#:condition}) {
         ${0:TARGET}
     }
@@ -143,14 +130,12 @@ options head
 snippet do_while
 alias   dowhile
 abbr    do {} while() {}
-options head
     do {
         ${0:TARGET}
     } while (${1:#:condition});
 
 snippet for
 abbr    for () {}
-options head
     for (${1:#:var}; ${2:#:condition}; ${3:#:effect}) {
         ${0:TARGET}
     }
@@ -158,14 +143,12 @@ options head
 snippet foreach
 alias   fore
 abbr    foreach () {}
-options head
     foreach (${1:#:var} in ${2:#:iter}) {
         ${0:TARGET}
     }
 
 snippet switch
 abbr    switch () {}
-options head
     switch (${1:#:var}) {
     case ${2:#:val}:
         ${0:TARGET}
@@ -187,13 +170,13 @@ options head
     goto case ${1:#:Val};${0}
 
 snippet default
-alias   de
 options head
     default:
         ${0:TARGET}
         break;
 
 snippet try_without_catch_nor_finally
+alias   try_n
 options head
     try {
         ${0:TARGET}
@@ -255,14 +238,12 @@ options head
 
 snippet catch
 abbr    catch () {}
-options head
     catch (${1:Exception} ${2:e}) {
         ${0:Console.WriteLine(e.Message);}
     }
 
 snippet catch_n
 abbr    catch {}
-options head
     catch {
         ${0}
     }
@@ -270,7 +251,6 @@ options head
 snippet finally
 alias   fin
 abbr    finally {}
-options head
     finally {
         ${0:TARGET}
     }
@@ -381,63 +361,63 @@ options head
 #XML Document
 snippet c
 abbr    <c></c>
-    <c>${1:#:text}</c>${0}
+    <c>${1:#:text}</c>
 
 snippet code
-abbr    /// <code></code>
-    /// <code>${0:#:content}</code>
+abbr    <code></code>
+    <code>${0:#:content}</code>
 
 snippet example
-abbr    /// <example></example>
-    /// <example>${0:#:description}</example>
+abbr    <example></example>
+    <example>${0:#:description}</example>
 
 snippet exception
-abbr    /// <exception cref=""></exception>
-    /// <exception cref="${1:#:class}">${2:#:description}</exception>${0}
+abbr    <exception cref=""></exception>
+    <exception cref="${1:#:class}">${2:#:description}</exception>
 
 snippet include
-abbr    /// <include file='' path=''/>
-    /// <include file='${1:#:filename}' path='${2:#:tabpath}[@${3:#:name}="${4:#:id}"]'/>
+abbr    <include file='' path=''/>
+    <include file='${1:#:filename}' path='${2:#:tabpath}[@${3:#:name}="${4:#:id}"]'/>
 
 snippet param
-abbr    /// <param name=""></param>
-    /// <param name="${1:#:name}">${0:#:description}</param>
+abbr    <param name=""></param>
+    <param name="${1:#:name}">${0:#:description}</param>
 
 snippet paramref
 abbr    <paramref name=""/>
-    <paramref name="${1:#:name}"/>${0}
+    <paramref name="${1:#:name}"/>
 
 snippet returns
-abbr    /// <returns></returns>
-    /// <returns>${0:#:description}</returns>
+abbr    <returns></returns>
+    <returns>${0:#:description}</returns>
 
 snippet remarks
-abbr    /// <remarks></remarks>
-    /// <remarks>${0:#:description}</remarks>
+abbr    <remarks></remarks>
+    <remarks>${0:#:description}</remarks>
 
 snippet see
 abbr    <see cref=""/>
-    <see cref="${1:#:member}"/>${0}
+    <see cref="${1:#:member}"/>
 
 snippet seealso
 abbr    <seealso cref=""/>
-    <seealso cref="${1:#:member}"/>${0}
+    <seealso cref="${1:#:member}"/>}
 
 snippet summary
-abbr    /// <summary></summary>
-    /// <summary>${0:#:description}</summary>
+abbr    <summary></summary>
+    <summary>${0:#:description}</summary>
 
 snippet typeparam
-abbr    /// <typeparam name=""></typeparam>
-    /// <typeparam name="${1:#:name}">${0:#:description}</typeparam>
+abbr    <typeparam name=""></typeparam>
+    <typeparam name="${1:#:name}">${0:#:description}</typeparam>
 
 snippet typeparamref
 abbr    <typeparamref name=""/>
-    <typeparamref name="${1:#:name}"/>${0}
+    <typeparamref name="${1:#:name}"/>
 
 snippet value
-abbr    /// <value></value>
-    /// <value>${0:#:description}</value>
+abbr    <value></value>
+    <value>${0:#:description}</value>
 
 
 # Other
