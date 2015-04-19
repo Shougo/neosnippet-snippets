@@ -64,6 +64,10 @@ snippet     crate
 options     head
     #![crate_name=${1:#:crate_name}]
 
+snippet     derive
+options     head
+    #[derive(${1:TARGET})]${2}
+
 # statements
 
 snippet     mod
@@ -106,7 +110,7 @@ abbr        forin  {}
     }
 
 snippet     match
-    match ${1:TARGET}  {
+    match ${1:TARGET} {
         ${2:#:pattern} => ${3:#expr},${4}
     }
 
