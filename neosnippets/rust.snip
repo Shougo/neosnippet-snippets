@@ -37,6 +37,9 @@ options     head
 
 # macros
 
+snippet     macro
+    ${1:#:macro_name}!(${2})${3}
+
 snippet     bfl
 abbr        bitflags!
     bitflags! {
@@ -46,6 +49,10 @@ abbr        bitflags!
 snippet     pln
 abbr        println!
     println!(${1:"\{\}"}, ${0:TARGET});
+
+snippet     fm
+abbr        format!
+    format!("${1:\{\}}", ${0:TARGET});
 
 # attributes
 
@@ -63,6 +70,10 @@ options     head
 snippet     crate
 options     head
     #![crate_name=${1:#:crate_name}]
+
+snippet     derive
+options     head
+    #[derive(${1:TARGET})]${2}
 
 # statements
 
@@ -106,7 +117,7 @@ abbr        forin  {}
     }
 
 snippet     match
-    match ${1:TARGET}  {
+    match ${1:TARGET} {
         ${2:#:pattern} => ${3:#expr},${4}
     }
 
@@ -126,6 +137,12 @@ snippet     pubstruct
 abbr        pub struct
 options     head
     pub struct ${1} {
+        ${0:TARGET}
+    }
+
+snippet     enum
+options     head
+    enum ${1} {
         ${0:TARGET}
     }
 
