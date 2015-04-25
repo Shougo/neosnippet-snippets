@@ -119,11 +119,17 @@ abbr        # -*- coding ...
 
 snippet     getattr
 abbr        getattr(..., ...)
-    getattr(#:obj, #:attr)
+options     word
+    getattr(${1:#:obj}, ${2:#:attr})
 
 snippet     setattr
 abbr        setattr(..., ...)
-    setattr(#:obj, #:attr)
+    setattr(${1:#:obj}, ${2:#:attr}, ${3:#:value})
+
+snippet     hasattr
+abbr        hasattr(..., ...)
+options     word
+    hasattr(${1:#:obj}, ${2:#:attr})
 
 snippet     pdb
 abbr        import pdb..
