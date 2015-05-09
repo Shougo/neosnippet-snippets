@@ -493,6 +493,32 @@ alias \node
 	\node[${1}](${2:name}) ${3};
 	${0}
 
+# ========== BibLaTeX ==========
+snippet addbibresource
+alias \addbibresource
+	\addbibresource{${1:resource}}
+	${0}
+
+snippet cite
+alias \cite
+	\cite{${1}}${0}
+
+snippet nocite
+alias \nocite
+	\nocite{${1}}${0}
+
+snippet supercite
+alias \supercite
+	\supercite{${1}}${0}
+
+snippet autocite
+alias \autocite
+	\autocite{${1}}${0}
+
+snippet fullcite
+alias \fullcite
+	\fullcite{${1}}${0}
+
 # ========== OTHERS ==========
 snippet usepackage
 alias   \usepackage
@@ -505,8 +531,3 @@ alias \ref
 snippet label
 alias \label
 	\label{${1}}${0}
-
-snippet cite
-alias \cite
-	\cite{${1}}${0}
-
