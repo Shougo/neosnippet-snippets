@@ -93,8 +93,13 @@ alias   \begin{verse} \verse
 
 snippet table
 alias   \begin{table} \table
-	\begin{table}
-		${1:TARGET}
+	\begin{table}[${1}]
+		\centering
+		\caption{${2}}
+		\label{${3}}
+		\begin{tabular}{${4}}
+			${5}
+		\end{tabular}
 	\end{table}
 
 snippet thebibliography
