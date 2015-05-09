@@ -206,11 +206,11 @@ alias   \begin{document} \document
 
 snippet figure
 alias   \begin{figure} \figure
-	\begin{figure}
+	\begin{figure}[${1}]
 		\centering
-		\includegraphics[${1:width=}]{${2}}
-		\caption{${3}}
-		\label{${4}}
+		\includegraphics[${2:width=}]{${3}}
+		\caption{${4}}
+		\label{${5}}
 	\end{figure}
 
 snippet filecontents
