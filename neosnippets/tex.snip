@@ -93,8 +93,13 @@ alias   \begin{verse} \verse
 
 snippet table
 alias   \begin{table} \table
-	\begin{table}
-		${1:TARGET}
+	\begin{table}[${1}]
+		\centering
+		\caption{${2}}
+		\label{${3}}
+		\begin{tabular}{${4}}
+			${5}
+		\end{tabular}
 	\end{table}
 
 snippet thebibliography
@@ -201,11 +206,11 @@ alias   \begin{document} \document
 
 snippet figure
 alias   \begin{figure} \figure
-	\begin{figure}
+	\begin{figure}[${1}]
 		\centering
-		\includegraphics[${1:width=}]{${2}}
-		\caption{${3}}
-		\label{${4}}
+		\includegraphics[${2:width=}]{${3}}
+		\caption{${4}}
+		\label{${5}}
 	\end{figure}
 
 snippet filecontents
@@ -255,6 +260,42 @@ alias   \begin{quote} \quote
 	\begin{quote}
 		${1:TARGET}
 	\end{quote}
+
+snippet matrix
+alias \begin{matrix} \matrix
+	\begin{matrix}
+		${1:TARGET}
+	\end{matrix}
+
+snippet bmatrix
+alias \begin{bmatrix} \bmatrix
+	\begin{bmatrix}
+		${1:TARGET}
+	\end{bmatrix}
+
+snippet pmatrix
+alias \pegin{bmatrix} \pmatrix
+	\begin{pmatrix}
+		${1:TARGET}
+	\end{pmatrix}
+
+snippet vmatrix
+alias \begin{vmatrix} \vmatrix
+	\begin{vmatrix}
+		${1:TARGET}
+	\end{vmatrix}
+
+snippet Bmatrix
+alias \begin{Bmatrix} \Bmatrix
+	\begin{Bmatrix}
+		${1:TARGET}
+	\end{Bmatrix}
+
+snippet Vmatrix
+alias \begin{Vmatrix} \Vmatrix
+	\begin{Vmatrix}
+		${1:TARGET}
+	\end{Vmatrix}
 
 # ========== SECTION ==========
 
@@ -349,6 +390,42 @@ alias   \begin{itshape} \itshape
 		${1:TARGET}
 	\end{itshape}
 
+snippet \textbf
+alias   textbf \textbf{
+	\textbf{${1:TARGET}}${0}
+
+snippet \textmd
+alias   textmd \textmd{
+	\textmd{${1:TARGET}}${0}
+
+snippet \texttt
+alias   texttt \texttt{
+	\texttt{${1:TARGET}}${0}
+
+snippet \textsf
+alias   textsf \textsf{
+	\textsf{${1:TARGET}}${0}
+
+snippet \textrm
+alias   textrm \textrm{
+	\textrm{${1:TARGET}}${0}
+
+snippet \textup
+alias   textup \textup{
+	\textup{${1:TARGET}}${0}
+
+snippet \textsl
+alias   textsl \textsl{
+	\textsl{${1:TARGET}}${0}
+
+snippet \textsc
+alias   textsc \textsc{
+	\textsc{${1:TARGET}}${0}
+
+snippet \textit
+alias   textit \textit{
+	\textit{${1:TARGET}}${0}
+
 # ==== BEAMER ====
 snippet frame
 alias  \begin{frame} \frame
@@ -374,12 +451,73 @@ alias \begin{alertblock}
         ${2:TARGET}
     \end{alertblock}
 
+# ========== TikZ ==========
 snippet tikzpicture
 alias \begin{tikzpicture}
-    \begin{tikzpicture}
-        ${1:TARGET}
+    \begin{tikzpicture}[${1}]
+        ${2:TARGET}
     \end{tikzpicture}
 
+snippet path
+alias \path
+	\path[${1}] ${2};
+	${0}
+
+snippet draw
+alias \draw
+	\draw[${1}] ${2};
+	${0}
+
+snippet fill
+alias \fill
+	\fill[${1}] ${2};
+	${0}
+
+snippet filldraw
+alias \filldraw
+	\filldraw[${1}] ${2};
+	${0}
+
+snippet shade
+alias \shade
+	\shade[${1}] ${2};
+	${0}
+
+snippet coordinate
+alias \coordinate
+	\coordinate[${1}](${2:name}) ${3};
+	${0}
+
+snippet node
+alias \node
+	\node[${1}](${2:name}) ${3};
+	${0}
+
+# ========== BibLaTeX ==========
+snippet addbibresource
+alias \addbibresource
+	\addbibresource{${1:resource}}
+	${0}
+
+snippet cite
+alias \cite
+	\cite{${1}}${0}
+
+snippet nocite
+alias \nocite
+	\nocite{${1}}${0}
+
+snippet supercite
+alias \supercite
+	\supercite{${1}}${0}
+
+snippet autocite
+alias \autocite
+	\autocite{${1}}${0}
+
+snippet fullcite
+alias \fullcite
+	\fullcite{${1}}${0}
 
 # ========== OTHERS ==========
 snippet usepackage
@@ -393,8 +531,3 @@ alias \ref
 snippet label
 alias \label
 	\label{${1}}${0}
-
-snippet cite
-alias \cite
-	\cite{${1}}${0}
-
