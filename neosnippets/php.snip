@@ -269,6 +269,24 @@ options head
 		break;
 	}
 
+snippet try
+options head
+	try {
+		${1:TARGET}
+	} catch (${2:#:Exception} $e) {
+		${3:#:code}
+	}
+
+snippet tryf
+options head
+	try {
+		${1:TARGET}
+	} catch (${2:#:Exception} $e) {
+		${3:#:code}
+	} finally {
+		${4:#:code}
+	}
+
 snippet throw
 options head
 	throw new ${1}Exception(${2:"${3:#:Error Processing Request}"}${4:});
