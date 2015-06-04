@@ -1,12 +1,12 @@
-snippet     mathexpression
-alias       $
-abbr        $ expression $
+snippet mathexpression
+alias   $
+abbr    $ expression $
     $${1:#:expression}$${2}
 
 # ========== ENVIRONMENT ==========
 
-snippet     begin
-alias       \begin
+snippet begin
+alias   \begin
     \begin{${1:#:type}}
         ${2:TARGET}
     \end{$1}
@@ -262,37 +262,37 @@ alias   \begin{quote} \quote
     \end{quote}
 
 snippet matrix
-alias \begin{matrix} \matrix
+alias   \begin{matrix} \matrix
     \begin{matrix}
         ${1:TARGET}
     \end{matrix}
 
 snippet bmatrix
-alias \begin{bmatrix} \bmatrix
+alias   \begin{bmatrix} \bmatrix
     \begin{bmatrix}
         ${1:TARGET}
     \end{bmatrix}
 
 snippet pmatrix
-alias \pegin{bmatrix} \pmatrix
+alias   \pegin{bmatrix} \pmatrix
     \begin{pmatrix}
         ${1:TARGET}
     \end{pmatrix}
 
 snippet vmatrix
-alias \begin{vmatrix} \vmatrix
+alias   \begin{vmatrix} \vmatrix
     \begin{vmatrix}
         ${1:TARGET}
     \end{vmatrix}
 
 snippet Bmatrix
-alias \begin{Bmatrix} \Bmatrix
+alias   \begin{Bmatrix} \Bmatrix
     \begin{Bmatrix}
         ${1:TARGET}
     \end{Bmatrix}
 
 snippet Vmatrix
-alias \begin{Vmatrix} \Vmatrix
+alias   \begin{Vmatrix} \Vmatrix
     \begin{Vmatrix}
         ${1:TARGET}
     \end{Vmatrix}
@@ -428,95 +428,95 @@ alias   textit \textit{
 
 # ==== BEAMER ====
 snippet frame
-alias  \begin{frame} \frame
+alias   \begin{frame} \frame
     \begin{frame}{${1:#:frametitle}}
         ${2:TARGET}
     \end{frame}
 
 snippet block
-alias \begin{block}
+alias   \begin{block}
     \begin{block}{${1:#:title}}
         ${2:TARGET}
     \end{block}
 
 snippet exampleblock
-alias \begin{exampleblock}
+alias   \begin{exampleblock}
     \begin{exampleblock}{${1:#:title}}
         ${2:TARGET}
     \end{exampleblock}
 
 snippet alertblock
-alias \begin{alertblock}
+alias   \begin{alertblock}
     \begin{alertblock}{${1:#:title}}
         ${2:TARGET}
     \end{alertblock}
 
 # ========== TikZ ==========
 snippet tikzpicture
-alias \begin{tikzpicture}
+alias   \begin{tikzpicture}
     \begin{tikzpicture}[${1}]
         ${2:TARGET}
     \end{tikzpicture}
 
 snippet path
-alias \path
+alias   \path
     \path[${1}] ${2};
     ${0}
 
 snippet draw
-alias \draw
+alias   \draw
     \draw[${1}] ${2};
     ${0}
 
 snippet fill
-alias \fill
+alias   \fill
     \fill[${1}] ${2};
     ${0}
 
 snippet filldraw
-alias \filldraw
+alias   \filldraw
     \filldraw[${1}] ${2};
     ${0}
 
 snippet shade
-alias \shade
+alias   \shade
     \shade[${1}] ${2};
     ${0}
 
 snippet coordinate
-alias \coordinate
+alias   \coordinate
     \coordinate[${1}](${2:name}) ${3};
     ${0}
 
 snippet node
-alias \node
+alias   \node
     \node[${1}](${2:name}) ${3};
     ${0}
 
 # ========== BibLaTeX ==========
 snippet addbibresource
-alias \addbibresource
+alias   \addbibresource
     \addbibresource{${1:resource}}
     ${0}
 
 snippet cite
-alias \cite
+alias   \cite
     \cite{${1}}${0}
 
 snippet nocite
-alias \nocite
+alias   \nocite
     \nocite{${1}}${0}
 
 snippet supercite
-alias \supercite
+alias   \supercite
     \supercite{${1}}${0}
 
 snippet autocite
-alias \autocite
+alias   \autocite
     \autocite{${1}}${0}
 
 snippet fullcite
-alias \fullcite
+alias   \fullcite
     \fullcite{${1}}${0}
 
 # ========== OTHERS ==========
@@ -525,9 +525,9 @@ alias   \usepackage
     \usepackage${1:[${2\}]}{${3}}
 
 snippet ref
-alias \ref
+alias   \ref
     \ref{${1}}${0}
 
 snippet label
-alias \label
+alias   \label
     \label{${1}}${0}
