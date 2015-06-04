@@ -1,5 +1,5 @@
 snippet article
-alias   @article 
+alias   @article
     @article{${1:LABEL},
         author = {${2}},
         title = {${3}},
@@ -7,7 +7,6 @@ alias   @article
         year = {${5}},
         memo = {volume, number, pages, month, note}
     }
-
 
 snippet book
 alias   @book
@@ -47,7 +46,6 @@ alias   @incollection
         memo = {editor, pages, organization, publisher, address, month, note},
     }
 
-
 snippet inproceedings
 alias   @inproceedings @conference conference
     @inproceedings{${1:LABEL},
@@ -55,7 +53,7 @@ alias   @inproceedings @conference conference
         title = {${3}},
         booktitle = {${4}},
         year = {${5}},
-        memo = {editor, volume, number, series, pages, address, month, 
+        memo = {editor, volume, number, series, pages, address, month,
             organization, publisher, note}
     }
 
@@ -69,55 +67,65 @@ alias   @manual
 snippet mastersthesis
 alias   @mastersthesis
     @mastersthesis{${1:LABEL},
-		author = {${2}},
-		title = {${3}},
-		school = {${4}},
-		year = {${5}},
+        author = {${2}},
+        title = {${3}},
+        school = {${4}},
+        year = {${5}},
         memo = {address, month, note},
-	}
+    }
 
 snippet misc
 alias   @misc
     @misc{${1:LABEL},
         memo = {author, title, howpublished, month, year, note},
-	}
+    }
+
+snippet online
+alias   @online
+    @online{${1:LABEL},
+        author = {${1}},
+        title = {${2}},
+        url = {${3}},
+        note = {year/date},
+    }
 
 snippet phdthesis
 alias   @phdthesis
     @phdthesis{${1:LABEL},
-		author = {${2}},
-		title = {${3}},
-		school = {${4}},
-		year = {${5}},
+        author = {${2}},
+        title = {${3}},
+        school = {${4}},
+        year = {${5}},
         memo = {address, month, note},
-	}
+    }
 
 snippet proceedings
 alias   @proceedings
     @proceedings{${1:LABEL},
-		title = {${2}},
-		year = {${3}},
-		memo = {editor, publisher, organization, address, month, note},
-	}
+        title = {${2}},
+        year = {${3}},
+        memo = {editor, publisher, organization, address, month, note},
+    }
 
 snippet techreport
 alias   @techreport
     @techreport{${1:LABEL},
-		author = {${2}},
-		title = {${3}},
-		institution = {${4}},
-		year = {${5}},
-		memo = {type, number, address, month, note},
-	}
+        author = {${2}},
+        title = {${3}},
+        institution = {${4}},
+        year = {${5}},
+        memo = {type, number, address, month, note},
+    }
 
 snippet unpublished
 alias   @unpublished
     @unpublished{${1:LABEL},
-		author = {${2}},
-		title = {${3}},
-		note = {${4}},
-		memo = {month, year},
-	}
+        author = {${2}},
+        title = {${3}},
+        note = {${4}},
+        memo = {month, year},
+    }
+
 
 snippet address
     address = {${1}},
@@ -222,5 +230,3 @@ snippet volume
 snippet year
     year = {${1}},
     ${0}
-
-
