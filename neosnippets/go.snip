@@ -89,3 +89,82 @@ snippet     case
 options     head
   case ${1:#:condition}:
     ${2:TARGET}
+
+
+# ------------------ Build-in functions
+
+snippet     close
+abbr        func(c chan<- Type)
+options     word
+  close(${0})
+
+snippet     len
+abbr        func(v Type) int
+options     word
+  len(${0})
+
+snippet     cap
+abbr        func(v Type) int
+options     word
+  cap(${0})
+
+snippet     new
+abbr        func(Type) *Type
+options     word
+  new(${0})
+
+snippet     make
+abbr        func(Type, size IntegerType) Type
+alias       make-slice
+options     word
+  make(${1:[]int}, ${0})
+
+snippet     make-map
+abbr        func(Type, size IntegerType) Type
+options     word
+  make(map[${1:string}]${2:string}, ${0})
+
+snippet     make-chan
+abbr        func(Type, size IntegerType) Type
+options     word
+  make(chan ${1:string}, ${0})
+
+snippet     append
+abbr        func(slice []Type, elems ...Type) []Type
+options     word
+  ${1:slice} = append($1, ${2:TARGET})
+
+snippet     copy
+abbr        func(dest, src []Type) int
+options     word
+  copy(${1:DEST}, ${2:SOURCE})
+
+snippet     delete
+abbr        func(m map[Type]Type1, key Type)
+options     word
+  delete(${1:TARGET}, ${2:Key})
+
+snippet     complex
+abbr        func(r, i FloatType) ComplexType
+options     word
+  complex(${1:REAL}, ${2:IMAG})
+
+snippet     real
+abbr        func(c ComplexType) FloatType
+options     word
+  real(${1:COMPLEX})
+
+snippet     imag
+abbr        func(c ComplexType) FloatType
+options     word
+  imag(${1:COMPLEX})
+
+snippet     panic
+abbr        func(v interface{})
+options     word
+  panic(${1:err})
+
+snippet     recover
+abbr        func() interface{}
+options     word
+  recover()
