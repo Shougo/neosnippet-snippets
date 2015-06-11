@@ -147,9 +147,12 @@ snippet j.m
     java.math.
 
 snippet main
-    public static void main(String[] args) {
-        ${0}
+    class `expand('%:p:t:r')` {
+        public static void main(String args[]) {
+            ${0:#:body}
+        }
     }
+
 
 snippet println
     System.out.println(${1});${0}
