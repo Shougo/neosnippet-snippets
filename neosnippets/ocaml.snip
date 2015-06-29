@@ -80,7 +80,7 @@ options     head
 
 snippet     fun
 abbr        (fun x -> ...)
-    (fun ${1:x} -> ${2:x})
+    (fun ${1:x} -> ${2:TARGET})
 
 snippet     arl
 abbr        array literal [| |]
@@ -89,6 +89,10 @@ abbr        array literal [| |]
 snippet     fail
 abbr        failwith "..."
     failwith "${0:TODO}"
+
+snippet     beg
+abbr        begin ... end
+    begin ${0:TARGET} end
 
 snippet     exn
 abbr        exception
