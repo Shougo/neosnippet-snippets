@@ -1,3 +1,11 @@
+snippet #!
+abbr    #!/bin/sh
+alias   shebang
+options head
+	#!/bin/${1:sh}
+	${0}
+
+
 snippet if
 	if [ ${1:#:condition} ]; then
 		${0:TARGET}
