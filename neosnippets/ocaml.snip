@@ -12,6 +12,13 @@ options     head
       ${2:TARGET}
     end
 
+snippet     mos
+abbr        module signature
+options     head
+    module ${1} : sig
+      ${2:TARGET}
+    end
+
 snippet     cc
 abbr        comment
     (* ${1:TARGET} *)
