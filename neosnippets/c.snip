@@ -24,8 +24,8 @@ abbr        if () {} else {}
 
 snippet     for
 abbr        for () {}
-    for (${1} = 0; $1 < ${2}; $1++) {
-        ${0:TARGET}
+    for (${1:int} ${2:i} = ${3:0}; $2 < ${4}; $2++) {
+        ${0:#:TARGET}
     }
 
 snippet     while

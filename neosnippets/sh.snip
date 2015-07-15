@@ -40,10 +40,11 @@ snippet until
 	done
 
 
-snippet here
-alias   h
-	<<${1}
-		${0:TARGET}
+snippet heredoc
+alias   h <<
+	<< ${1:EOF}
+		${0:#:TARGET}
+	$1
 
 snippet env
 	#!/usr/bin/env ${1}
