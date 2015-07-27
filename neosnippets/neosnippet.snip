@@ -1,6 +1,6 @@
 snippet     snippet
 abbr        snippet abbr options <snippet code>
-alias       snip, sn
+alias       snip
 options     head
     snippet     ${1:#:trigger}
     abbr        ${2:#:abbr}
@@ -118,8 +118,9 @@ abbr        ${5:#optional}
 options     word
     \${5:#${0:optional}}
 
-snippet     T
+snippet     TARGET
 abbr        ${*:TARGET}
+alias       T
 options     word
     ${${0:0}:TARGET}
 
