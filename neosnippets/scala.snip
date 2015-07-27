@@ -18,6 +18,11 @@ snippet     for
 		${1}
 	} yield ${2}
 
+snippet     if
+	if (${1}) {
+		${2}
+	}${3: else}
+
 snippet     p
 abbr        println()
 	println(${1})
@@ -25,6 +30,10 @@ abbr        println()
 snippet     pn
 abbr        println('name, name)
 	println('${1:#:name}, $1)
+
+snippet     pf
+abbr        p in for
+	val _ = println(${1})
 
 snippet     main
 abbr        def main(args: Array[String]) {
@@ -47,6 +56,12 @@ options     head
 snippet     object
 options     head
 	object ${1:X} {
+		${0:TARGET}
+	}
+
+snippet     class
+options     head
+	class ${1:X()} {
 		${0:TARGET}
 	}
 
