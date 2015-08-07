@@ -59,10 +59,10 @@ options     head
 	else:
 		${0:pass}
 
-snippet     fileidiom
-abbr        with open()
+snippet     with_open
+alias       fileidiom
 options     head
-	with open(${1:#:filename}, '${2:#:mode}') as ${3:f}:
+	with open(${1:#:file}, '${2:r}') as ${3:f}:
 		${0:pass}
 
 snippet     for

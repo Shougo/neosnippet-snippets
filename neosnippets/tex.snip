@@ -212,9 +212,9 @@ snippet figure
 alias   \begin{figure} \figure
     \begin{figure}[${1}]
         \centering
-        \includegraphics[${2:width=}]{${3}}
-        \caption{${4}}
-        \label{${5}}
+        \includegraphics[${2:width=${3\}}]{${4}}
+        \caption{${5}}
+        \label{${6}}
     \end{figure}
 
 snippet filecontents
@@ -337,6 +337,17 @@ snippet \subparagraph
 alias   subparagraph \subparagraph{
     \subparagraph{${1}}
     ${0:TARGET}
+
+# ========== MATH ==========
+
+snippet \frac
+alias   frac \frac{
+    \frac{${1}}{${2}}${0}
+
+snippet \left
+alias   left
+abbr    \left \right
+    \left${1:(} ${3:#:body} \right${2:)}${0}
 
 # ========== FONT ==========
 
