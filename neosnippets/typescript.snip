@@ -42,7 +42,7 @@ options     head
 snippet     interface
 abbr        interface NAME {...}
 options     head
-  IntegerType ${1:#:NAME} {
+  interface ${1:#:NAME} {
     ${0:#:TARGET}
   }
 
@@ -57,6 +57,13 @@ snippet     module
 abbr        module NAME {...}
 options     head
   module ${1:#:NAME} {
+    ${0:#:TARGET}
+  }
+
+snippet     namespace
+abbr        namespace NAME {...}
+options     head
+  namespace ${1:#:NAME} {
     ${0:#:TARGET}
   }
 
