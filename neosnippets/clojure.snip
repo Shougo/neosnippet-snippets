@@ -87,4 +87,4 @@ options     head
 snippet     bench
   (let [bench-before (System/currentTimeMillis)]
     ${1:TARGET}
-    (prn 'Took (- (System/currentTimeMillis) bench-before)) 'msec)
+    (prn 'Took (- (System/currentTimeMillis) bench-before) 'msec))
