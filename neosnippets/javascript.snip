@@ -55,6 +55,39 @@ options head
     ${0:TARGET}
   }
 
+snippet while
+options head
+  while (${1:true}) {
+    ${0:TARGET}
+  }
+
+snippet switch
+options head
+  switch (${1:#:var}) {
+    case ${2:#:val}:
+      ${0:TARGET}
+      break;
+  }
+
+snippet try
+options head
+  try {
+    ${0:TARGET}
+  } catch (${1:e}) {
+    ${2:TARGET}
+  }
+
+snippet try_finally
+options head
+  try {
+    ${0:TARGET}
+  } catch (${1:e}) {
+    ${2}
+  } finally {
+    ${3}
+  }
+
+
 snippet key-value
 abbr :,
 options word
