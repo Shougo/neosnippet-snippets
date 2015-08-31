@@ -142,6 +142,12 @@ alias   \begin{array} \array
         ${2:TARGET}
     \end{array}
 
+snippet cases
+alias   \begin{cases} \cases
+    \begin{cases}{${1}}
+        ${2:TARGET}
+    \end{cases}
+
 snippet slide
 alias   \begin{slide} \slide
     \begin{slide}
@@ -465,6 +471,20 @@ alias   \begin{alertblock}
     \begin{alertblock}{${1:#:title}}
         ${2:TARGET}
     \end{alertblock}
+
+snippet columns
+alias   \begin{columns} \columns
+    \begin{columns}
+        \begin{column}{${1:#:width}${2:\\textwidth}}
+            ${0:#:body}
+        \end{column}
+    \end{columns}
+
+snippet column
+alias   \begin{column} \column
+    \begin{column}{${1:#:width}${2:\\textwidth}}
+        ${0:#:body}
+    \end{column}
 
 # ========== TikZ ==========
 snippet tikzpicture
