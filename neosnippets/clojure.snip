@@ -49,7 +49,7 @@ options     head
 
 snippet     deftest
 options     head
-  (deftest ${1:a-test}
+  (deftest ${1:a}-test
     (testing "${2:hello}"
       ${0:TARGET:(is (= 0 1))}))
 
@@ -81,8 +81,7 @@ options     head
 snippet     ns
 options     head
   (ns ${1:`substitute(substitute(substitute(expand('%:p:r'), '.*/\(src\|test\)/', '', ''), '/', '.', 'g'), '_', '-', 'g')`}
-    (:require [${2:clojure.string} :as ${3:s}]
-              [clojure.pprint :refer [pprint]]))
+    (:require `expand('%:r') =~ '_test$' ? '[clojure.test :refer :all]' : ''`${2:}))
 
 snippet     bench
   (let [bench-before (System/currentTimeMillis)]
