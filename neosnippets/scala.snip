@@ -38,7 +38,7 @@ abbr        p in for
 snippet     main
 abbr        def main(args: Array[String]) {
 options     head
-	object ${1:HelloWorld} {
+	object ${1:`expand('%:t:r') ==# '' ? 'HelloWorld' : expand('%:t:r')`} {
 		def main(args: Array[String]) {
 			${0:TARGET}
 		}
@@ -47,7 +47,7 @@ options     head
 snippet     hello
 abbr        object HelloWorld { def main(...) }
 options     head
-	object HelloWorld {
+	object ${1:`expand('%:t:r') ==# '' ? 'HelloWorld' : expand('%:t:r')`} {
 		def main(args: Array[String]) {
 			println("Hello, world!")
 		}
@@ -67,10 +67,8 @@ options     head
 
 snippet     should-scalatest
 options     word
-	should {
-		"${1}" in {
-			${0:TARGET}
-		}
+	should "${1}" in {
+		${0:TARGET}
 	}
 
 snippet     akka-actor
