@@ -1,1 +1,6 @@
 include sh.snip
+
+snippet     zplug
+options     head
+        zplug "`getreg('+')=='' ? '<\`0\`>' : getreg('+')`"${0}
+
