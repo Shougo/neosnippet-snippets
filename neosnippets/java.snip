@@ -110,18 +110,22 @@ snippet finally
     }
 
 snippet th
+options word
     throw ${0}
 
 snippet sy
+options word
     synchronized
 
 snippet testclass
 alias   tc
+options head
     public class ${1} extends ${2:TestCase} {
         ${0:TARGET}
     }
 
 snippet test
+options head
     public void test${1:#:Name}() throws Exception {
         ${0:TARGET}
     }
@@ -155,9 +159,11 @@ snippet main
 
 
 snippet println
+options word
     System.out.println(${1});${0}
 
 snippet print
+options word
     System.out.print(${1});${0}
 
 #javadoc
