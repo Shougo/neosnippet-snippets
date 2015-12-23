@@ -26,7 +26,7 @@ function! g:NeosnippetSnippets_Goiferr() abort
   endwhile
 
   if ret =~ '\v^\s*$'
-    return '${0:return}'
+    return '${1}'
   endif
 
   let rets = []
@@ -45,5 +45,5 @@ function! g:NeosnippetSnippets_Goiferr() abort
     call add(rets, v)
   endfor
 
-  return '${0:return ' . join(rets, ", ") . '}'
+  return '${1: ' . join(rets, ", ") . '}'
 endfunction

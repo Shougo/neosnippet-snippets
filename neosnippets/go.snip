@@ -74,8 +74,8 @@ options     head
 snippet     iferr
 alias       ife
 options     head
-    if ${1:err != nil} {
-      `g:NeosnippetSnippets_Goiferr()`
+    if err != nil {
+      return `g:NeosnippetSnippets_Goiferr()`
     }
 
 snippet     switch
