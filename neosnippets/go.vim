@@ -1,5 +1,5 @@
 " From http://pocke.hatenablog.com/entry/2015/12/20/133445
-function! neosnippet#snippets#goiferr() abort
+function! g:NeosnippetSnippets_Goiferr() abort
   let re_func = '\vfunc'
   let re_type = '%(%([.A-Za-z0-9*]|\[|\]|%(%(struct)|%(interface)\{\}))+)'
   let re_rcvr = '%(\s*\(\w+\s+' . re_type . '\))?'
