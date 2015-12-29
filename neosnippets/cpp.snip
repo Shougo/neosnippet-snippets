@@ -2,10 +2,12 @@ include c.snip
 
 # #include <...>
 snippet inc
+options     head
 alias   #inc, #include
     #include <${1:iostream}>${0}
 # #include "..."
 snippet inc2
+options     head
 alias   #inc2, #include2
     #include "${1}"${0}
 
@@ -14,6 +16,7 @@ abbr        template <T>
     template<typename ${1:T}> ${0}
 
 snippet     class
+options     head
 abbr        class {}
     class ${1:#:name} {
         ${2}
@@ -25,12 +28,14 @@ abbr        class {}
     }
 
 snippet     class-without-constructor
+options     head
 abbr        class {}
     class ${1:#:name} {
         ${2}
     };
 
 snippet     try
+options     head
 abbr        try catch
     try {
         ${1:#:TARGET}
@@ -40,6 +45,7 @@ abbr        try catch
 
 # range based for ( C++11 feature )
 snippet     for_CPP11
+options     head
 abbr        for (:) {}
     for (${1:auto&& }${2:var} : ${3:container}) {
         ${0:TARGET}
@@ -52,6 +58,7 @@ abbr        [](){}
 
 # scoped enumeration ( C++11 feature )
 snippet     enum_scoped
+options     head
 abbr        enum struct {};
     enum struct ${1:#:name} { ${2:#:TARGET} };
 
@@ -61,9 +68,9 @@ abbr        static_assert(,"")
     static_assert( ${1}, "${2}" );${0}
 
 delete      namespace
+options     head
 snippet     namespace
 abbr        namespace {}
-options     head
     namespace ${1:#:name} {
         ${0:TARGET}
     } // namespace $1
