@@ -8,7 +8,7 @@ snippet beginend
     end
 
 snippet module
-    module ${1:name}(
+    module ${1:`expand("%:r")`}(
         ${2:TARGET}
     );
     endmodule
