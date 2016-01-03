@@ -6,18 +6,21 @@ options head
 snippet import
 options head
 abbr    import
+alias   imp
 	import ${1:String}
 
 
 snippet importAs
 options head
 abbr    import ... as ...
+alias   impa
 	import ${1} as ${2}
 
 
 snippet importExposing
 options head
 abbr    import ... exposing (..)
+alias   impe
 	import ${1:Html} exposing (${2:..})
 
 
