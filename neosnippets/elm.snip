@@ -7,7 +7,7 @@ abbr    import
 snippet importAs
 options head
 abbr    import ... as ...
-	import $1 as $2
+	import ${1} as ${2}
 
 
 snippet importExposing
@@ -31,20 +31,20 @@ abbr    case ... of
 
 snippet if
 abbr    if ... then ... else ...
-	if $1 then
-		$2
+	if ${1} then
+		${2}
 	else
-		$3
+		${3}
 
 
 snippet     let
 abbr        let ... in ...
 options     head
-	let $1 = $2
+	let ${1} =${2}
 	in
-		$3
+		${3}
 
 
 snippet     lambda
 abbr        λ
-	\${1:x} -> ${0}
+	\ ${1:x} -> ${0}
