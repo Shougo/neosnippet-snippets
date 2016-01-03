@@ -1,18 +1,26 @@
+snippet module
+options head
+	module `substitute(substitute(expand('%:r'), '[/\\]','.','g'),'^\%(\l*\.\)\?','','')` ${1} where${2}
+
+
 snippet import
 options head
 abbr    import
+alias   imp
 	import ${1:String}
 
 
 snippet importAs
 options head
 abbr    import ... as ...
-	import $1 as $2
+alias   impa
+	import ${1} as ${2}
 
 
 snippet importExposing
 options head
 abbr    import ... exposing (..)
+alias   impe
 	import ${1:Html} exposing (${2:..})
 
 
@@ -31,20 +39,20 @@ abbr    case ... of
 
 snippet if
 abbr    if ... then ... else ...
-	if $1 then
-		$2
+	if ${1} then
+		${2}
 	else
-		$3
+		${3}
 
 
 snippet     let
 abbr        let ... in ...
 options     head
-	let $1 = $2
+	let ${1} =${2}
 	in
-		$3
+		${3}
 
 
 snippet     lambda
 abbr        λ
-	\${1:x} -> ${0}
+	\ ${1:x} -> ${0}
