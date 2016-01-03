@@ -157,25 +157,33 @@ options head
         ${0:TARGET}
     }
 
+
+##Basic java imports
+
 snippet import
-alias   imt
-    import ${1};
-    ${0}
+alias   im
+options head
+    import ${1}
 
 snippet j.u
-    java.util.
+alias   j,u
+    java.util.${1}
 
 snippet j.i
-    java.io.
+alias   j,i
+    java.io.${1}
 
 snippet j.b
-    java.beans.
+alias   j,b
+    java.beans.${1}
 
 snippet j.n
-    java.net
+alias   j,n
+    java.net.${1}
 
 snippet j.m
-    java.math.
+alias   j,m
+    java.math.${1}
 
 snippet main
     class `expand('%:p:t:r')` {
@@ -186,15 +194,19 @@ snippet main
 
 
 snippet println
+alias   pl
 options word
-    System.out.println(${1});${0}
+    System.out.println(${1});${2}
 
 snippet print
+alias   prt
 options word
-    System.out.print(${1});${0}
+    System.out.print(${1});${2}
 
 #javadoc
 snippet comment
+alias   /**
+options head
     /**
      * ${0:TARGET}
      */
