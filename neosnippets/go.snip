@@ -1,3 +1,5 @@
+source go.vim
+
 snippet     helloworld
 abbr        package main\nimport fmt...
 options     head
@@ -65,8 +67,15 @@ options     head
 
 snippet     if
 options     head
-    if ${1:err != nil} {
-        ${0:TARGET}
+    if ${1:#:condition} {
+      ${0:TARGET}
+    }
+
+snippet     iferr
+alias       ife
+options     head
+    if err != nil {
+      return`g:NeosnippetSnippets_Goiferr()`
     }
 
 snippet     switch

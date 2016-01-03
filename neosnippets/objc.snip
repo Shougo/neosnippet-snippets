@@ -182,7 +182,7 @@ abbr KVCArry
 		[${3}} addObject:anObject];
 	}
 	
-	- (void)insertObject:($2)anObject in$1AtIndex:(unsigned int)i 
+	- (void)insertObject:($2)anObject in$1AtIndex:(unsigned int)i
 	{
 		[${3} insertObject:anObject atIndex:i];
 	}
@@ -199,7 +199,7 @@ abbr KVCArry
 	
 	- (void)removeObjectFrom${1}AtIndex:(unsigned int)i
 	{
-		 [${3} removeObjectAtIndex:i]; 
+		 [${3} removeObjectAtIndex:i];
 	}
 	
 	- (unsigned int)countOf${1}
@@ -313,7 +313,7 @@ snippet del
 
 
 snippet format
-   [NSString stringWithFormat:@"${1}", ${2}]${0} 
+   [NSString stringWithFormat:@"${1}", ${2}]${0}
 
 
 snippet save
