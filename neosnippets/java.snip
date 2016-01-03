@@ -1,17 +1,44 @@
-snippet class
-    class ${1} ${2:extends} ${3:#:Parent} ${4:implements} ${5:#:Interface} {
-        ${0:TARGET}
+## Access Modifiers
+snippet     protected
+alias       po,pro
+options     head
+    protected ${1}
+
+snippet     public
+alias       pu
+options     head
+    public ${1}
+
+snippet     private
+alias       pr
+options     head
+    private ${1}
+
+
+##class
+snippet     class
+abbr        cle
+alias       cle
+options     head
+    public class ${1:`expand('%:t:r')`} ${2:extends ${3:parentClass\}} ${4:implements ${5:interfaces\}} {
+        ${6}
     }
+
+
 
 snippet interface
     interface ${1} ${2:extends} ${3:#:Parent} {
         ${0:TARGET}
     }
 
-snippet method
-    ${1:void} ${2:#:method}(${3}) ${4:throws} {
-        ${0:TARGET}
+snippet     method
+abbr        m
+alias       m
+options     head
+    ${1:public ${2:static\}} ${3:void} ${4:methodName}(${5:#:args}) {
+        ${6}
     }
+
 
 snippet enum
 abbr enum {}
