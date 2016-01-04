@@ -27,12 +27,11 @@ options     head
 
 
 snippet interface
-    interface ${1} ${2:extends} ${3:#:Parent} {
-        ${0:TARGET}
+    interface ${1:`expand('%:t:r)`} ${2:extends ${3:#:Parent\}} {
+        ${4:TARGET}
     }
 
 snippet     method
-abbr        m
 alias       m
 options     head
     ${1:public ${2:static\}} ${3:void} ${4:methodName}(${5:#:args}) {
@@ -43,7 +42,7 @@ options     head
 snippet enum
 abbr enum {}
     enum ${1:#:name} {
-        ${0:TARGET}
+        ${2:TARGET}
     }
 
 snippet var
@@ -61,6 +60,10 @@ snippet assert
 snippet if
     if (${1}) {
         ${2:TARGET}
+    }
+snippet else
+    else {
+        ${1:TARGET}
     }
 
 snippet elif
