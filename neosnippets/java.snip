@@ -49,10 +49,10 @@ snippet var
     ${1:#:type} ${2:#:var}${3};
 
 snippet const
-    static public final ${1:#:type} ${2:#:var} = ${3};${4}
+    ${1:private} static final ${2:#:type} ${3:#:var} = ${4};${5}
 
 snippet const_string
-    static public final String ${1:var} = "${2}";${4}
+    ${1:private} static final String ${2:var} = "${3}";${5}
 
 snippet assert
     assert ${1:#:test} : ${2:#:Failure message};${3}
