@@ -148,3 +148,11 @@ alias dv
 abbr $dumpvars(0, ...);
     $dumpvars(${1:0}, ${2:`expand("%:r")`});${0}
 
+snippet display
+abbr $display("...", ...);
+  $display("${1}", ${2});
+
+snippet strobe
+abbr $strobe("...", ...);
+  $strobe("${1}", ${2});
+
