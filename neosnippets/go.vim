@@ -45,5 +45,5 @@ function! g:NeosnippetSnippets_Goiferr() abort
     call add(rets, v)
   endfor
 
-  return '${1: ' . join(rets, ", ") . '}'
+  return '${1:' . join(rets, ", ") . '}'
 endfunction
