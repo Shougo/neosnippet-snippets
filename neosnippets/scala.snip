@@ -95,6 +95,7 @@ options     head
 	package `substitute(substitute(expand('%:h'), '.*\<src/\(main\|test\)/scala/', '', ''), '/', '.', 'g')`
 
 snippet     cclass
+options     head
 abbr        case class ..(..: ..)
 	case class ${1}(${2}: ${0})
 
