@@ -85,3 +85,11 @@ options     head
       ${1}
     rescue
       ${2} -> ${3}
+
+snippet     with
+abbr        with .. do .. end
+options     head
+    with ${1}
+    do
+      ${2}
+    end
