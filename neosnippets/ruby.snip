@@ -166,12 +166,12 @@ options     head
   end
 
 snippet     class
-  class ${1:#:Name}
+  class ${1:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
     ${0}
   end
 
 snippet     module
-  module ${1:#:Name}
+  module ${1:`substitute(expand('%:t:r:r:r'), '\v%(^(.)|_(.))', '\u\1\u\2', 'g')`}
     ${0}
   end
 
