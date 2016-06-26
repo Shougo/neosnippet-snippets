@@ -21,17 +21,17 @@ options     head
 
 snippet     cc
 abbr        comment
-    (* ${1:TARGET} *)
+    (* ${0:TARGET} *)
 
 snippet     Cc
 abbr        multi line comment
     (*
-       ${1:TARGET}
+       ${0:TARGET}
     *)
 
 snippet     oo
 abbr        ocamldoc comment (** .. *)
-    (** ${1:TARGET} *)
+    (** ${0:TARGET} *)
 
 snippet     if
 abbr        if..then..else
@@ -95,7 +95,7 @@ abbr        array literal [| |]
 
 snippet     fail
 abbr        failwith "..."
-    failwith "${0:TODO}"
+    failwith "${0:TARGET}"
 
 snippet     beg
 abbr        begin ... end
@@ -110,3 +110,8 @@ snippet     lit
 abbr        string literals {xxx| ... |xxx}
 options     head
     {${0:}|${1:TARGET}|$0}
+
+snippet     @@
+abbr        [@@deriving ...]
+options     head
+    [@@deriving ${0:TARGET}]
