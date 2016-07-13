@@ -249,3 +249,24 @@ snippet	width
 alias	w
     width:${1};${2}
 
+# For media query
+snippet     media
+abbr        @media ...
+options     head
+  @media ${1:condition} {
+    ${0:TARGET}
+  }
+
+snippet     media-min-width
+abbr        @media all and (min-width) {...}
+options     head
+  @media ${1:all} and (min-width: ${2:SIZE}) {
+    ${0:TARGET}
+  }
+
+snippet     media-max-width
+abbr        @media all and (max-width) {...}
+options     head
+  @media ${1:all} and (max-width: ${2:SIZE}) {
+    ${0:TARGET}
+  }
