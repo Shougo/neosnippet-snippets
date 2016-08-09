@@ -147,3 +147,59 @@ snippet jsc
 options head
   console.log(JSON.stringify(${1:TARGET}, ${2:null}, ${3:2}));
 
+snippet     class
+abbr        class {...}
+options     head
+  class ${1:#:NAME} {
+    constructor(${2:#:ARGS}) {
+      ${0:TARGET}
+    }
+  }
+
+snippet     class-extends
+abbr        class extends {...}
+options     head
+  class ${1:#:NAME} extends ${2:#:SuperClass} {
+    constructor(${3:#:ARGS}) {
+      ${0:TARGET}
+    }
+  }
+
+snippet     static
+options     head
+  static ${1:#:NAME}(${2:#:ARGS}) {
+    ${0:TARGET}
+  }
+
+snippet     set
+options     head
+  set ${1:#:NAME}(${2:#:ARGS}) {
+    ${0:TARGET}
+  }
+
+snippet     get
+options     head
+  get ${1:#:NAME}() {
+    ${0:TARGET}
+  }
+
+snippet     import
+abbr        import { member, ... } from "module-name";
+options     head
+  import { ${1:MEMBERS} } from "${0:TARGET}";
+
+snippet     import-defualt
+abbr        import defaultMember from "module-name";
+options     head
+  import ${1:defaultMember} from "${0:TARGET}";
+
+snippet     import-all
+abbr        import * as NAME from "...";
+options     head
+  import * as ${1:NAME} from "${0:TARGET}";
+
+snippet     import-defualt-member
+abbr        import defaultMember, { member, ... } from "module-name";
+options     head
+  import ${1:defaultMember}, { ${2:MEMBERS} } from "${0:TARGET}";
+  
