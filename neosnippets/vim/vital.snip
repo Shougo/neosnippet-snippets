@@ -8,8 +8,8 @@ options     head
   let ${1:s:V} = vital#of('${2:#:plugin_name}')
 
 snippet     vital_import_without_let
-abbr        import
-  ${1:s:V}.import('${2:Module}')
+abbr        s:V.import('...')
+  ${1:s:V}.import('${2:#:module_name}')
 
 snippet     vital_import
 abbr        let s:M = s:V.import('...')
