@@ -7,6 +7,15 @@ abbr        let s:V = vital#of('...')
 options     head
   let ${1:s:V} = vital#of('${2:#:plugin_name}')
 
+snippet     vital_new_without_let
+abbr        vital#...#new()
+  vital#${1:#:plugin_name}#new()
+
+snippet     vital_new
+abbr        let s:V = vital#...#new()
+options     head
+  let ${1:s:V} = vital#${2:#:plugin_name}#new()
+
 snippet     vital_import_without_let
 abbr        s:V.import('...')
   ${1:s:V}.import('${2:#:module_name}')
