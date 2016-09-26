@@ -1,15 +1,15 @@
-snippet     vital_of_without_let
-abbr        vital#of('...')
-  vital#of('${1:#:vital_name}')
+snippet     vital_new_without_let
+abbr        vital#...#new()
+  vital#${1:#:plugin_name}#new()
 
-snippet     vital_of
-abbr        let s:V = vital#of('...')
+snippet     vital_new
+abbr        let s:V = vital#...#new()
 options     head
-  let ${1:s:V} = vital#of('${2:#:vital_name}')
+  let ${1:s:V} = vital#${2:#:plugin_name}#new()
 
 snippet     vital_import_without_let
-abbr        import
-  ${1:s:V}.import('${2:Module}')
+abbr        s:V.import('...')
+  ${1:s:V}.import('${2:#:module_name}')
 
 snippet     vital_import
 abbr        let s:M = s:V.import('...')
