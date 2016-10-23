@@ -33,10 +33,12 @@ options     head
   ${0:TARGET}
 
 snippet     printf
+alias pf
 options     head
   fmt.Printf("${1}\n"${2:})
 
 snippet     println
+alias pn
 options     head
   fmt.Println(${0:TARGET})
 
