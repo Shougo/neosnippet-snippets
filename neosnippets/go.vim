@@ -34,7 +34,7 @@ function! g:NeosnippetSnippets_Goiferr() abort
     if t =~# '\v^\s*error\s*$'
       let v = 'err'
     elseif t =~# '\v^\s*string\s*$'
-      let v = '""'
+      let v = '"${1\}"'
     elseif t =~# '\v^\s*int\d*\s*$'
       let v = '0'
     elseif t =~# '\v^\s*bool\s*$'
@@ -45,5 +45,5 @@ function! g:NeosnippetSnippets_Goiferr() abort
     call add(rets, v)
   endfor
 
-  return '${1:' . join(rets, ", ") . '}'
+  return '${1:' . join(rets, ", ") . '${0\}}'
 endfunction
