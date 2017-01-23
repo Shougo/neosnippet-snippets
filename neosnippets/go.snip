@@ -15,12 +15,14 @@ options     head
 
 snippet     func
 abbr        func ...() { ... }
+alias fn
 options     head
   func ${1:fname}(${2}) ${3:int }{
     ${0:TARGET:return }
   }
 
 snippet     import
+alias im
 options     head
   import (
     "${1:fmt}"
@@ -28,6 +30,7 @@ options     head
   ${0:TARGET}
 
 snippet     package
+alias pk
 options     head
   package ${1:main}
   ${0:TARGET}
@@ -43,12 +46,14 @@ options     head
   fmt.Println(${0:TARGET})
 
 snippet     struct
+alias ts
 options     head
   type ${1} struct {
     ${0:TARGET}
   }
 
 snippet     interface
+alias ti
 options     head
   type ${1} interface {
     ${0:TARGET}
@@ -103,7 +108,7 @@ options     head
     ${2:TARGET}
 
 snippet     funcTest
-addr        func Test... (t *testing.T) { ... }
+abbr        func Test... (t *testing.T) { ... }
 options     head
   func Test${1} (${2:t *testing.T}) {
     for i := 0; i < ${3:t.N}; i++ {
@@ -112,7 +117,7 @@ options     head
   }
 
 snippet     funcbench
-addr        func Bench... (b *testing.B) { ... }
+abbr        func Bench... (b *testing.B) { ... }
 options     head
   func Bench${1} (${2:b *testing.B}) {
     for i := 0; i < ${3:b.N}; i++ {
