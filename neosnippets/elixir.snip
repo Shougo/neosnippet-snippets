@@ -93,3 +93,10 @@ options     head
     do
       ${2}
     end
+
+snippet     describe
+abbr        describe .. do .. end
+options     head
+    describe "${1:describe_name}" do
+      ${2}
+    end
