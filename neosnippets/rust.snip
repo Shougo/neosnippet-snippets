@@ -35,6 +35,24 @@ options     head
         ${0:TARGET}
     }
 
+snippet     impl
+options     head
+    impl ${1} {
+        ${0:TARGET}
+    }
+
+snippet     implfor
+options     head
+    impl ${1} for ${2} {
+        ${0:TARGET}
+    }
+
+snippet     trait
+options     head
+    trait ${1} {
+        ${0:TARGET}
+    }
+
 # macros
 
 snippet     macro
