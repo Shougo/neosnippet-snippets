@@ -117,9 +117,9 @@ options     head
   }
 
 snippet     funcbench
-abbr        func Bench... (b *testing.B) { ... }
+abbr        func Benchmark... (b *testing.B) { ... }
 options     head
-  func Bench${1} (${2:b *testing.B}) {
+  func Benchmark${1} (${2:b *testing.B}) {
     for i := 0; i < ${3:b.N}; i++ {
       ${4}
     }
