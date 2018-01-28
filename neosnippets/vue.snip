@@ -2,12 +2,12 @@ snippet     scaffold
 options     head
 abbr        Scaffold <template> <script> and <style>
      <template>
-     ${0}
+       ${0}
      </template>
 
      <script>
      export default {
-
+     }
      </script>
 
      <style>
@@ -18,14 +18,14 @@ snippet     template_with_html
 options     head
 abbr        Scaffold <template> with html
      <template>
-     ${0}
+       ${0}
      </template>
 
 snippet     template_with_pug
 options     head
 abbr        Scaffold <template> with pug
      <template lang="pug">
-     ${0}
+       ${0}
      </template>
 
 snippet     script_with_JavaScript
@@ -33,7 +33,7 @@ options     head
 abbr        Scaffold <script> with JavaScript
      <script>
      export default {
-     ${0}
+       ${0}
      }
      </script>
 
@@ -41,9 +41,10 @@ snippet     script_with_TypeScript
 options     head
 abbr        Scaffold <script> with TypeScript
      <script lang="ts">
-     export default {
-     ${0}
-     }
+     import Vue from 'vue'
+     export default Vue.extend({
+       ${0}
+     })
      </script>
 
 snippet     style_with_CSS
