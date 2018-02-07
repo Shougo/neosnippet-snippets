@@ -1,49 +1,79 @@
-snippet class
-    class ${1} ${2:extends} ${3:#:Parent} ${4:implements} ${5:#:Interface} {
-        ${0:TARGET}
+## Access Modifiers
+snippet     protected
+alias       po,pro
+options     head
+    protected ${1}
+
+snippet     public
+alias       pu
+options     head
+    public ${1}
+
+snippet     private
+alias       pr
+options     head
+    private ${1}
+
+
+##class
+snippet     class
+abbr        cle
+alias       cle
+options     head
+    public class ${1:`expand('%:t:r')`} ${2:extends ${3:parentClass\}} ${4:implements ${5:interfaces\}} {
+        ${6}
     }
+
+
 
 snippet interface
-    interface ${1} ${2:extends} ${3:#:Parent} {
-        ${0:TARGET}
+    interface ${1:`expand('%:t:r)`} ${2:extends ${3:#:Parent\}} {
+        ${4:TARGET}
     }
 
-snippet method
-    ${1:void} ${2:#:method}(${3}) ${4:throws} {
-        ${0:TARGET}
+snippet     method
+alias       m
+options     head
+    ${1:public ${2:static\}} ${3:void} ${4:methodName}(${5:#:args}) {
+        ${6}
     }
+
 
 snippet enum
 abbr enum {}
     enum ${1:#:name} {
-        ${0:TARGET}
+        ${2:TARGET}
     }
 
 snippet var
     ${1:#:type} ${2:#:var}${3};
 
 snippet const
-    static public final ${1:#:type} ${2:#:var} = ${3};${4}
+    ${1:private} static final ${2:#:type} ${3:#:var} = ${4};${5}
 
 snippet const_string
-    static public final String ${1:var} = "${2}";${4}
+    ${1:private} static final String ${2:var} = "${3}";${5}
 
 snippet assert
     assert ${1:#:test} : ${2:#:Failure message};${3}
 
 snippet if
-    if (${1}) {
+    if (${1:true}) {
         ${2:TARGET}
+    }
+snippet else
+    else {
+        ${1:TARGET}
     }
 
 snippet elif
 alias elseif
-    else if (${1}) {
+    else if (${1:true}) {
         ${2:TARGET}
     }
 
 snippet while
-    while (${1}) {
+    while (${1:true}) {
         ${2:TARGET}
     }
 
@@ -130,25 +160,28 @@ options head
         ${0:TARGET}
     }
 
+
+##Basic java imports
+
 snippet import
-alias   imt
-    import ${1};
-    ${0}
+alias   im
+options head
+    import ${1}
 
 snippet j.u
-    java.util.
+    java.util.${1}
 
 snippet j.i
-    java.io.
+    java.io.${1}
 
 snippet j.b
-    java.beans.
+    java.beans.${1}
 
 snippet j.n
-    java.net
+    java.net.${1}
 
 snippet j.m
-    java.math.
+    java.math.${1}
 
 snippet main
     class `expand('%:p:t:r')` {
@@ -159,15 +192,19 @@ snippet main
 
 
 snippet println
+alias   pl
 options word
-    System.out.println(${1});${0}
+    System.out.println(${1});${2}
 
 snippet print
+alias   prt
 options word
-    System.out.print(${1});${0}
+    System.out.print(${1});${2}
 
 #javadoc
 snippet comment
+alias   /**
+options head
     /**
      * ${0:TARGET}
      */
