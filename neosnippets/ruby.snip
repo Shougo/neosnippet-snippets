@@ -8,19 +8,19 @@ options head
 snippet     if
 abbr        if ... end
   if ${1:#:condition}
-    ${2:TARGET}
+    ${0:TARGET}
   end
 
 snippet     unless
 abbr        unless ... end
   unless ${1:#:condition}
-    ${2:TARGET}
+    ${0:TARGET}
   end
 
 snippet     def
 abbr        def ... end
   def ${1:#:method_name}
-    ${2:TARGET}
+    ${0:TARGET}
   end
 
 snippet     defrescue
@@ -29,31 +29,31 @@ abbr        def ... rescue ... end
   def ${1:#:method_name}
     ${2:TARGET}
   rescue ${3:#:StandardError} => ${4:error}
-    ${5}
+    ${0}
   end
 
 snippet     do
 abbr        do ... end
   do
-    ${1:TARGET}
+    ${0:TARGET}
   end
 
 snippet     dovar
 abbr        do |var| ... end
   do |${1:#:var}|
-    ${2:TARGET}
+    ${0:TARGET}
   end
 
 snippet     block
 abbr        { ... }
   {
-    ${1:TARGET}
+    ${0:TARGET}
   }
 
 snippet     blockvar
 abbr        {|var| ... }
   {|${1:#:var}|
-    ${2:TARGET}
+    ${0:TARGET}
   }
 
 snippet     fileopen
@@ -80,62 +80,62 @@ alias   enc
 snippet each
 options word
   each do |${1:#:variable}|
-    ${2}
+    ${0}
   end
 
 snippet each_byte
 options word
-  each_byte {|${1:#:variable}| ${2} }
+  each_byte {|${1:#:variable}| ${0} }
 
 snippet each_char
 options word
-  each_char {|${1:#:variable}| ${2} }
+  each_char {|${1:#:variable}| ${0} }
 
 snippet each_index
 options word
-  each_index {|${1:#:variable}| ${2} }
+  each_index {|${1:#:variable}| ${0} }
 
 snippet each_key
 options word
-  each_key {|${1:#:variable}| ${2} }
+  each_key {|${1:#:variable}| ${0} }
 
 snippet each_line
 options word
-  each_line {|${1:#:variable}| ${2} }
+  each_line {|${1:#:variable}| ${0} }
 
 snippet each_with_index
 options word
-  each_with_index {|${1:#:variable}| ${2} }
+  each_with_index {|${1:#:variable}| ${0} }
 
 snippet each_pair
 options word
-  each_pair {|${1:#:key}, ${2:value}| ${3} }
+  each_pair {|${1:#:key}, ${2:value}| ${0} }
 
 snippet each_pair_do
 options word
   each_pair do |${1:key}, ${2:value}|
-    ${3}
+    ${0}
   end
 
 snippet map
 options word
-  map {|${1:#:variable}| ${2} }
+  map {|${1:#:variable}| ${0} }
 
 snippet sort
 options word
-  sort {|${1:x}, ${2:y}| ${2} }
+  sort {|${1:x}, ${2:y}| ${0} }
 
 snippet sort_by
 options word
-  sort_by {|${1:#:variable}| ${2} }
+  sort_by {|${1:#:variable}| ${0} }
 
 snippet lambda
 options word
-  -> (${1:#:args}) { ${2} }
+  -> (${1:#:args}) { ${0} }
 
 snippet lambda-keyword
 options word
-  lambda {|${1:#:args}| ${2} }
+  lambda {|${1:#:args}| ${0} }
 
 snippet     main
 options     head
@@ -162,7 +162,7 @@ options     head
   when ${2}
     ${3}
   else
-    ${4}
+    ${0}
   end
 
 snippet     class
