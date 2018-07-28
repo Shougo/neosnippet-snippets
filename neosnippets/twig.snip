@@ -87,7 +87,7 @@ abbr        {% macro ...(...) %} ... {% endmacro %}
 options     head
 	{% macro ${1:#:name}(${2:#:args}) %}
 		${0:TARGET}
-	{% endif %}
+	{% endmacro %}
 
 snippet     sandbox
 abbr        {% sandbox %} ... {% endsandbox %}
@@ -145,4 +145,3 @@ options     head
 	{% ${1:#:tag} ${2:#:name} %}
 		${0:TARGET}
 	{% end$1 %}
-
