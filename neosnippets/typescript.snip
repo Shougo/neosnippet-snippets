@@ -7,7 +7,7 @@ options     head
 
 snippet     class
 abbr        class NAME {...}
-options     head
+options     word
   class ${1:#:NAME} {
     constructor(${2:#:Args}) {
       ${3:#:TARGET}
@@ -41,7 +41,7 @@ options     head
 
 snippet     interface
 abbr        interface NAME {...}
-options     head
+options     word
   interface ${1:#:NAME} {
     ${0:#:TARGET}
   }
