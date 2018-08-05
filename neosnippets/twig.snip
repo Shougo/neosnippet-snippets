@@ -87,7 +87,12 @@ options     head
 snippet     include
 abbr        {% include '...' %}
 options     head
-	{% include '${1:#:template}'}
+	{% include '${1:#:template}' %}
+
+snippet     includewith
+abbr        {% include '...' %}
+options     head
+	{% include '${1:#:template}' with {${2:#:'key'}: ${2:#:'value'}} %}
 
 snippet     macro
 abbr        {% macro ...(...) %} ... {% endmacro %}
