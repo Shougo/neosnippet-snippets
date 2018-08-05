@@ -13,6 +13,13 @@ options     head
 		${0:TARGET}
 	{% endblock %}
 
+snippet     dump
+abbr        <pre> {{ dump(...) }} </pre>
+options     head
+    <pre>
+ 		{{ dump(${0:TARGET}) }}
+    </pre>
+
 snippet     embed
 abbr        {% embed ... %} ... {% endembed %}
 options     head
