@@ -57,7 +57,7 @@ options     head
 snippet     from
 abbr        {% from '...' import ... %}
 options     head
-	{% from '${1:#:module}' import ${2:#:macro}}
+	{% from '${1:#:module}' import ${2:#:macro} %}
 
 snippet     if
 abbr        {% if ... %} ... {% endif %}
@@ -82,7 +82,7 @@ options     head
 snippet     import
 abbr        {% import '...' as ... %}
 options     head
-	{% import '${1:#:module}' as ${2:#:namespace}}
+	{% import '${1:#:module}' as ${2:#:namespace} %}
 
 snippet     include
 abbr        {% include '...' %}
