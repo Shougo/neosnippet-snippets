@@ -13,6 +13,13 @@ options     head
 		${0:TARGET}
 	{% endblock %}
 
+snippet     dump
+abbr        <pre> {{ dump(...) }} </pre>
+options     head
+    <pre>
+ 		{{ dump(${0:TARGET}) }}
+    </pre>
+
 snippet     embed
 abbr        {% embed ... %} ... {% endembed %}
 options     head
@@ -50,7 +57,7 @@ options     head
 snippet     from
 abbr        {% from '...' import ... %}
 options     head
-	{% from '${1:#:module}' import ${2:#:macro}}
+	{% from '${1:#:module}' import ${2:#:macro} %}
 
 snippet     if
 abbr        {% if ... %} ... {% endif %}
@@ -75,12 +82,17 @@ options     head
 snippet     import
 abbr        {% import '...' as ... %}
 options     head
-	{% import '${1:#:module}' as ${2:#:namespace}}
+	{% import '${1:#:module}' as ${2:#:namespace} %}
 
 snippet     include
 abbr        {% include '...' %}
 options     head
-	{% include '${1:#:template}'}
+	{% include '${1:#:template}' %}
+
+snippet     includewith
+abbr        {% include '...' %}
+options     head
+	{% include '${1:#:template}' with {${2:#:'key'}: ${2:#:'value'}} %}
 
 snippet     macro
 abbr        {% macro ...(...) %} ... {% endmacro %}
