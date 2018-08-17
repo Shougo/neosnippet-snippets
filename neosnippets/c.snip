@@ -1,3 +1,4 @@
+# Control structures {{{
 snippet     if
 options     head
 abbr        if () {}
@@ -5,13 +6,13 @@ abbr        if () {}
         ${0:TARGET}
     }
 
-snippet else
+snippet     else
 options     head
     else {
         ${0:TARGET}
     }
 
-snippet elseif
+snippet     elseif
 options     head
     else if (${1:#:condition}) {
         ${0:TARGET}
@@ -30,6 +31,20 @@ snippet     for
 options     head
 abbr        for () {}
     for (${1:int} ${2:i} = ${3:0}; $2 < ${4}; $2++) {
+        ${0:#:TARGET}
+    }
+
+# Counter based for's (don't ask for the type or count start)
+snippet     fori
+options     head
+abbr        for(int x;...){}
+    for (int ${1:i} = 0; $1 < ${2}; $1++) {
+        ${0:#:TARGET}
+    }
+
+# For reverse counter
+snippet     forri
+    for (int ${1:i} = ${2}; $1 > 0; $1--) {
         ${0:#:TARGET}
     }
 
@@ -56,11 +71,25 @@ abbr        switch () {}
             break;
     }
 
+snippet     case
+options     head
+abbr        case: break;
+	case ${1}:
+		${0}
+		break;
+
+# Ternary conditional operator
+snippet conditional
+    (${1:#:condition}) ? ${2:#:a} : ${3:#:b}
+
+# }}}
+
+# Definition bodies {{{
 snippet     function
 options     head
 alias       func
 abbr        func() {}
-    ${1:void} ${2:#:func_name}(${3:#:args}) {
+    ${1:void} ${2:#:func_name}(${3:#:void}) {
         ${0:TARGET}
     }
 
@@ -72,7 +101,7 @@ abbr        struct {}
     };
 
 # Typedef struct
-snippet struct_typedef
+snippet     struct_typedef
 options     head
     typedef struct ${1:#:name} {
         ${0:TARGET:data}
@@ -86,7 +115,7 @@ abbr        enum {}
     };
 
 # hard-tab is necessary; C indent doesn't support this.
-snippet main
+snippet     main
 options     head
 	int main(int argc, char const* argv[])
 	{
@@ -94,65 +123,7 @@ options     head
 		return 0;
 	}
 
-# #include <...>
-snippet inc
-options     head
-alias   #inc, #include
-    #include <${1:stdio}.h>${0}
-# #include "..."
-snippet inc2
-options     head
-alias   #inc2, #include2
-    #include "${1}.h"${0}
-
-snippet ifndef
-options     head
-alias   #ifndef
-abbr #ifndef ... #define ... #endif
-    #ifndef $1
-    #define ${1:#:SYMBOL}
-    #endif${0}
-
-snippet def
-options     head
-alias   #def, #define
-    #define 
-
-# Include-Guard
-snippet once
-options     head
-abbr include-guard
-    #ifndef ${1:SYMBOL}
-        #define $1
-
-        ${0:TARGET}
-    #endif /* end of include guard */
-
-# Ternary conditional operator
-snippet conditional
-    (${1:#:condition}) ? ${2:#:a} : ${3:#:b}
-
-snippet typedef
-    typedef ${1:#:base_type} ${2:#:custom_type};
-
-snippet printf
-abbr    printf("...\n", ...);
-    printf("${1}\n", ${2});
-
-snippet fprintf
-abbr    fprintf(..., "...\n", ...);
-    fprintf(${1:stderr}, "${2}\n"${3});
-
-snippet comment
-alias /*
-    /* ${1:#:comment} */
-    ${0}
-
-snippet sizeof
-alias size
-    sizeof(${0:TARGET})
-
-snippet helloworld
+snippet     helloworld
 options     head
     #include <stdio.h>
     int main(int argc, char const* argv[])
@@ -161,15 +132,122 @@ options     head
         return 0;
     }
 
+# }}}
+
+# Preprocessing directives {{{
+# #include <...>
+snippet     inc
+options     head
+alias       #inc, #include
+    #include <${1:stdio}.h>${0}
+
+# #include "..."
+snippet     inc2
+options     head
+alias       #inc2, #include2
+    #include "${1}.h"${0}
+
+snippet     ifdef
+options     head
+alias       #ifdef
+abbr        #ifdef ... #endif
+    #ifdef $1
+    ${0}
+    #endif
+
+snippet     ifndef
+options     head
+alias       #ifndef
+abbr #ifndef ... #define ... #endif
+    #ifndef $1
+    #define ${1:#:SYMBOL}
+    #endif${0}
+
+snippet     def
+options     head
+alias       #def, #define
+    #define
+
+# Include-Guard
+snippet     once
+options     head
+abbr        include-guard
+    #ifndef ${1:SYMBOL}
+        #define $1
+
+        ${0:TARGET}
+    #endif /* end of include guard */
+
+# }}}
+
+# Built-in function calls {{{
+snippet printf
+abbr    printf("...\n", ...);
+    printf("${1}\n", ${2});
+
+snippet fprintf
+abbr    fprintf(..., "...\n", ...);
+    fprintf(${1:stderr}, "${2}\n"${3});
+
 snippet fopen
 abbr fopen("...", "...");
-    fopen("${1:PATH}", "${2:MODE}");
-    ${0:TARGET}
-    fclose(${3:FD});
+	fopen("${1:PATH}", "${2:MODE}");
+	${0:TARGET}
+	fclose(${3:FD});
 
 snippet fgets
-abbr fgets(row, length, file);
+abbr    fgets(row, length, file);
     fgets(${0:ROW}, ${1:LENGTH}, ${2:FILE});
+
+snippet fscanf
+abbr    fscanf(file, "...", ...);
+    fscanf(${1:FILE}, "${2}", ${3});
+
+snippet fwrite
+abbr    fwrite(......, file)
+    fwrite(${1:ARRAY}, sizeof(${2:TYPE}), ${3:N_MEMBERS}, ${4:FILE})
+
+snippet fread
+abbr    fread(......, file)
+    fread(${1:ARRAY}, sizeof(${2:TYPE}), ${3:N_MEMBERS}, ${4:FILE})
+
+snippet memcpy
+abbr    memcpy(dest, src, nbytes)
+    mempcy(${1:DEST}, ${2:SRC}, ${3:N_MEMBERS})
+
+# }}}
+
+# Built-in operators and alias {{{
+snippet typedef
+    typedef ${1:#:base_type} ${2:#:custom_type};
+
+snippet sizeof
+alias   size
+    sizeof(${0:TARGET})
+
+snippet sizeof_array
+alias   array_size
+    (sizeof(${1:#:array}) / sizeof(*($1)))
+
+snippet _static_assert
+options head
+    _Static_assert(${1:#:condition}, ${2:#:message})
+
+snippet static_assert
+options head
+    static_assert(${1:#:condition}, ${2:#:message})
+
+snippet _Generic
+alias   generic, select
+    _Generic(${1:#:expression}, ${2:#:association-list})
+
+# }}}
+
+# Comments {{{
+snippet comment
+alias   /*
+    /* ${1:#:comment} */
+    ${0}
 
 snippet     doxy
 abbr        /** @brief ...
@@ -183,3 +261,7 @@ options     head
      *
      * @return   ${4:return type}
      */
+
+# }}}
+
+# vim: fdm=marker
