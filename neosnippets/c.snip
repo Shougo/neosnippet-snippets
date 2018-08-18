@@ -6,14 +6,15 @@ abbr        if () {}
         ${0:TARGET}
     }
 
+# No head option in else/elseif so it can be expanded after "}"
 snippet     else
-options     head
+abbr        else {}
     else {
         ${0:TARGET}
     }
 
 snippet     elseif
-options     head
+abbr        else () {}
     else if (${1:#:condition}) {
         ${0:TARGET}
     }
@@ -37,14 +38,16 @@ abbr        for () {}
 # Counter based for's (don't ask for the type or count start)
 snippet     fori
 options     head
-abbr        for(int x;...){}
+abbr        for (int x;...; x++) {}
     for (int ${1:i} = 0; $1 < ${2}; $1++) {
         ${0:#:TARGET}
     }
 
 # For reverse counter
 snippet     forri
-    for (int ${1:i} = ${2}; $1 > 0; $1--) {
+options     head
+abbr        for (int x; ...; x--) {}
+    for (int ${1:i} = ${2}; $1 >= 0; $1--) {
         ${0:#:TARGET}
     }
 
@@ -65,11 +68,11 @@ alias       do
 snippet     switch
 options     head
 abbr        switch () {}
-    switch (${1:#:var}) {
-        case ${2:#:val}:
-            ${0:TARGET}
-            break;
-    }
+	switch (${1:#:var}) {
+		case ${2:#:val}:
+			${0:TARGET}
+			break;
+	}
 
 snippet     case
 options     head
@@ -89,7 +92,7 @@ snippet     function
 options     head
 alias       func
 abbr        func() {}
-    ${1:void} ${2:#:func_name}(${3:#:void}) {
+    ${1:void} ${2:#:func_name}(${3:void}) {
         ${0:TARGET}
     }
 
@@ -151,7 +154,7 @@ snippet     ifdef
 options     head
 alias       #ifdef
 abbr        #ifdef ... #endif
-    #ifdef $1
+    #ifdef ${1:#:SYMBOL}
     ${0}
     #endif
 
@@ -172,7 +175,7 @@ alias       #def, #define
 snippet     once
 options     head
 abbr        include-guard
-    #ifndef ${1:SYMBOL}
+    #ifndef ${1:#:SYMBOL}
         #define $1
 
         ${0:TARGET}
@@ -183,7 +186,11 @@ abbr        include-guard
 # Built-in function calls {{{
 snippet printf
 abbr    printf("...\n", ...);
-    printf("${1}\n", ${2});
+    printf("${1}\n"${2});
+
+snippet scanf
+abbr    scanf("...", ...);
+    scanf("${1}", ${2});
 
 snippet fprintf
 abbr    fprintf(..., "...\n", ...);
@@ -197,11 +204,11 @@ abbr fopen("...", "...");
 
 snippet fgets
 abbr    fgets(row, length, file);
-    fgets(${0:ROW}, ${1:LENGTH}, ${2:FILE});
+    fgets(${0:ROW}, ${1:LENGTH}, ${2:stdin});
 
 snippet fscanf
 abbr    fscanf(file, "...", ...);
-    fscanf(${1:FILE}, "${2}", ${3});
+    fscanf(${1:stdin}, "${2}", ${3});
 
 snippet fwrite
 abbr    fwrite(......, file)
@@ -213,8 +220,27 @@ abbr    fread(......, file)
 
 snippet memcpy
 abbr    memcpy(dest, src, nbytes)
-    mempcy(${1:DEST}, ${2:SRC}, ${3:N_MEMBERS})
+    memcpy(${1:DEST}, ${2:SRC}, ${3:NBYTES})
 
+snippet malloc
+abbr    malloc(size)
+	($2 *)malloc(${1:N_MEMBERS} * sizeof(${2:TYPE}));
+	${0}
+	free(${3:MEM});
+
+snippet calloc
+abbr    calloc(n, size)
+	($2 *)calloc(${1:N_MEMBERS}, sizeof(${2:TYPE}));
+	${0}
+	free(${3:MEM});
+
+snippet realloc
+abbr    realloc(old, size)
+	($3 *)realloc(${1:OLD}, ${2:N_MEMBERS} * sizeof(${3:TYPE}));
+	${0}
+
+snippet seed_rand
+    srand(time(NULL));
 # }}}
 
 # Built-in operators and alias {{{
@@ -229,18 +255,26 @@ snippet sizeof_array
 alias   array_size
     (sizeof(${1:#:array}) / sizeof(*($1)))
 
-snippet _static_assert
+snippet _Static_assert
+alias   _static_assert
 options head
-    _Static_assert(${1:#:condition}, ${2:#:message})
+    _Static_assert(${1:#:condition}, ${2:#:message});
 
 snippet static_assert
 options head
-    static_assert(${1:#:condition}, ${2:#:message})
+    static_assert(${1:#:condition}, ${2:#:message});
 
 snippet _Generic
 alias   generic, select
     _Generic(${1:#:expression}, ${2:#:association-list})
 
+snippet va_list
+options head
+abbr    va_start(va_list, last_arg); ... ; va_end()
+	va_list ${1:ap};
+	va_start($1, ${2:LAST_ARG});
+	${0}
+	va_end($1);
 # }}}
 
 # Comments {{{
