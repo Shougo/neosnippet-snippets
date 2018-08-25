@@ -172,10 +172,11 @@ abbr #ifndef ... #define ... #endif
     #define ${1:#:SYMBOL}
     #endif${0}
 
+# This snippet used the placeholder instead of a trailing space
 snippet     def
 options     head
 alias       #def, #define
-    #define
+    #define ${1}
 
 # Include-Guard
 snippet     once
