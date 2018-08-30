@@ -28,12 +28,20 @@ snippet const
 snippet const_string
     static public final String ${1:var} = "${2}";${4}
 
+snippet final
+    public final ${1:#:type} ${2:#:var} = ${3};
+
 snippet assert
     assert ${1:#:test} : ${2:#:Failure message};${3}
 
 snippet if
     if (${1}) {
         ${2:TARGET}
+    }
+
+snippet else
+    else {
+        ${1:TARGET}
     }
 
 snippet elif
@@ -160,11 +168,15 @@ snippet main
 
 snippet println
 options word
-    System.out.println(${1});${0}
+    System.out.println(${1});
 
 snippet print
 options word
-    System.out.print(${1});${0}
+    System.out.print(${1});
+
+snippet format
+options word
+    System.out.format(${1});
 
 #javadoc
 snippet comment

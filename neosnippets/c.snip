@@ -142,13 +142,19 @@ options     head
 snippet     inc
 options     head
 alias       #inc, #include
-    #include <${1:stdio}.h>${0}
+    #include <${1:stdio}.h>
 
 # #include "..."
 snippet     inc2
 options     head
 alias       #inc2, #include2
-    #include "${1}.h"${0}
+    #include "${1}.h"
+
+snippet     #if
+options     head
+    #if ${1}
+    ${0}
+    #endif
 
 snippet     ifdef
 options     head
@@ -166,15 +172,17 @@ abbr #ifndef ... #define ... #endif
     #define ${1:#:SYMBOL}
     #endif${0}
 
+# This snippet used the placeholder instead of a trailing space
 snippet     def
 options     head
 alias       #def, #define
-    #define
+    #define ${1}
 
 # Include-Guard
 snippet     once
 options     head
-abbr        include-guard
+alias       include-guard
+abbr #ifndef ... #define ... #endif
     #ifndef ${1:#:SYMBOL}
         #define $1
 
