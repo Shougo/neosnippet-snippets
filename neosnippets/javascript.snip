@@ -46,13 +46,13 @@ options head
 
 snippet for
 options head
-  for (var ${1:i} = 0; $1 < ${2:#:Things}.length; ++$1) {
+  for (let ${1:i} = 0; $1 < ${2:#:Things}.length; ++$1) {
     ${0:TARGET}
   }
 
 snippet forin
 options head
-  for (var ${1:i} in ${2:#:Things}) {
+  for (let ${1:i} in ${2:#:Things}) {
     ${0:TARGET}
   }
 
@@ -64,7 +64,7 @@ options head
 
 snippet switch
 options head
-  switch (${1:#:var}) {
+  switch (${1:#:let}) {
     case ${2:#:val}:
       ${0:TARGET}
       break;
@@ -202,4 +202,4 @@ snippet     import-default-member
 abbr        import defaultMember, { member, ... } from "module-name";
 options     head
   import ${1:defaultMember}, { ${2:MEMBERS} } from "${0:TARGET}";
-  
+
