@@ -1,0 +1,25 @@
+snippet main
+options     head
+  :- initialization main.
+
+  main :-
+    current_prolog_flag(argv, Args),
+    writeln(Args),
+    halt.
+
+snippet module
+options     head
+  :- module(${1:name}, [${0:export}]).
+
+snippet begintest
+options     head
+  :- begin_tests(${1:unit}).
+    test(${2:case}) :- ${0:goal}.
+  :- end_tests($1).
+
+  :- run_tests.
+  :- halt.
+
+snippet test
+options     head
+  test(${1:case}) :- ${0:goal}.
