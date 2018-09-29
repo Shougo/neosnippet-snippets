@@ -13,8 +13,14 @@ options     head
 
 snippet begintest
 options     head
-  :- begin_tests(${1:unit}).
-    test(${2:case}) :- ${0:goal}.
+  :- begin_tests(${1:name}).
+    ${0}
+  :- end_tests($1).
+
+snippet runtest
+options     head
+  :- begin_tests(${1:name}).
+    ${0}
   :- end_tests($1).
 
   :- run_tests.
@@ -22,4 +28,5 @@ options     head
 
 snippet test
 options     head
-  test(${1:case}) :- ${0:goal}.
+  test(${1:case}, [true(${2:var} = ${3:value})]) :-
+    ${0:goal}.
