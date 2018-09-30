@@ -19,10 +19,6 @@ options     head
 
 snippet runtest
 options     head
-  :- begin_tests(${1:name}).
-    ${0}
-  :- end_tests($1).
-
   :- run_tests.
   :- halt.
 
