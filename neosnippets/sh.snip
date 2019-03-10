@@ -74,7 +74,7 @@ options     head
 snippet     assign
 abbr        var-assign
 options     head
-	${1:name}="${2:something}"
+	${1:name}="${2:something}"${0}
 
 snippet     case
 options     head
@@ -88,11 +88,11 @@ options     head
 
 snippet     warn
 options     head
-	echo "${0:TARGET}" 1>&2
+	echo "${1:TARGET}" 1>&2${0}
 
 snippet     abort
 options     head
-	echo "${0:TARGET}" 1>&2
-	exit 1
+	echo "${1:TARGET}" 1>&2
+	exit 1${0}
 
 # vim: set noexpandtab :

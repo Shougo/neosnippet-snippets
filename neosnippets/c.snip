@@ -142,13 +142,13 @@ options     head
 snippet     inc
 options     head
 alias       #inc, #include
-    #include <${1:stdio}.h>
+    #include <${1:stdio}.h>${0}
 
 # #include "..."
 snippet     inc2
 options     head
 alias       #inc2, #include2
-    #include "${1}.h"
+    #include "${1}.h"${0}
 
 snippet     #if
 options     head
@@ -194,15 +194,15 @@ abbr #ifndef ... #define ... #endif
 # Built-in function calls {{{
 snippet printf
 abbr    printf("...\n", ...);
-    printf("${1}\n"${2});
+    printf("${1}\n"${2});${0}
 
 snippet scanf
 abbr    scanf("...", ...);
-    scanf("${1}", ${2});
+    scanf("${1}", ${2});${0}
 
 snippet fprintf
 abbr    fprintf(..., "...\n", ...);
-    fprintf(${1:stderr}, "${2}\n"${3});
+    fprintf(${1:stderr}, "${2}\n"${3});${0}
 
 snippet fopen
 abbr fopen("...", "...");
@@ -212,23 +212,23 @@ abbr fopen("...", "...");
 
 snippet fgets
 abbr    fgets(row, length, file);
-    fgets(${0:ROW}, ${1:LENGTH}, ${2:stdin});
+    fgets(${1:ROW}, ${2:LENGTH}, ${3:stdin});${0}
 
 snippet fscanf
 abbr    fscanf(file, "...", ...);
-    fscanf(${1:stdin}, "${2}", ${3});
+    fscanf(${1:stdin}, "${2}", ${3});${0}
 
 snippet fwrite
 abbr    fwrite(......, file)
-    fwrite(${1:ARRAY}, sizeof(${2:TYPE}), ${3:N_MEMBERS}, ${4:FILE})
+    fwrite(${1:ARRAY}, sizeof(${2:TYPE}), ${3:N_MEMBERS}, ${4:FILE});${0}
 
 snippet fread
 abbr    fread(......, file)
-    fread(${1:ARRAY}, sizeof(${2:TYPE}), ${3:N_MEMBERS}, ${4:FILE})
+    fread(${1:ARRAY}, sizeof(${2:TYPE}), ${3:N_MEMBERS}, ${4:FILE});${0}
 
 snippet memcpy
 abbr    memcpy(dest, src, nbytes)
-    memcpy(${1:DEST}, ${2:SRC}, ${3:NBYTES})
+    memcpy(${1:DEST}, ${2:SRC}, ${3:NBYTES});${0}
 
 snippet malloc
 abbr    malloc(size)
@@ -253,28 +253,28 @@ snippet seed_rand
 
 # Built-in operators and alias {{{
 snippet typedef
-    typedef ${1:#:base_type} ${2:#:custom_type};
+    typedef ${1:#:base_type} ${2:#:custom_type};${0}
 
 snippet sizeof
 alias   size
-    sizeof(${0:TARGET})
+    sizeof(${1:TARGET})${0}
 
 snippet sizeof_array
 alias   array_size
-    (sizeof(${1:#:array}) / sizeof(*($1)))
+    (sizeof(${1:#:array}) / sizeof(*($1)))${0}
 
 snippet _Static_assert
 alias   _static_assert
 options head
-    _Static_assert(${1:#:condition}, ${2:#:message});
+    _Static_assert(${1:#:condition}, ${2:#:message});${0}
 
 snippet static_assert
 options head
-    static_assert(${1:#:condition}, ${2:#:message});
+    static_assert(${1:#:condition}, ${2:#:message});${0}
 
 snippet _Generic
 alias   generic, select
-    _Generic(${1:#:expression}, ${2:#:association-list})
+    _Generic(${1:#:expression}, ${2:#:association-list})${0}
 
 snippet va_list
 options head

@@ -1,27 +1,27 @@
 snippet     range
 abbr        set x/y range.
 options     head
-        set ${1:#:axis}range [${2:*}:${3:*}]
+        set ${1:#:axis}range [${2:*}:${3:*}]${0}
 
 snippet     xrange
 abbr        set xrange [X1:X2]
 options     head
-        set xrange [${1:*}:${2:*}]
+        set xrange [${1:*}:${2:*}]${0}
 
 snippet     yrange
 abbr        set yrange [Y1:Y2]
 options     head
-        set yrange [${1:*}:${2:*}]
+        set yrange [${1:*}:${2:*}]${0}
 
 snippet     title
 abbr        set title '...'
 options     head
-        set title ${1:#:title}
+        set title '${1:#:title}'${0}
 
 snippet     labelaxis
 abbr        set title '...'
 options     head
-        set ${1:#:axis}label ${2:#:label}
+        set ${1:#:axis}label '${2:#:label}'${0}
 
 snippet     tics
 abbr        set x/y tics start, incr, end
@@ -41,7 +41,7 @@ options     head
 snippet     datasep
 abbr        set datafile separator 'separator'
 options     head
-        set datafile separator '${1:#:separator}'
+        set datafile separator '${1:#:separator}'${0}
 
 snippet     term
 abbr        set terminal
@@ -51,7 +51,7 @@ options     head
 snippet     out
 abbr        set output 'filename'
 options     head
-        set output '${1:#:filename}'
+        set output '${1:#:filename}'${0}
 
 snippet     key
 abbr        set key
@@ -78,15 +78,10 @@ abbr        set border
 options     head
         set border
 
-snippet     print
-abbr        print
-options     head
-        print(${1:#:string}}
-
 snippet     sprintf
 abbr        sprintf
 options     head
-        sprintf('${1:#:format}', ${2:#:vars})
+        sprintf('${1:#:format}', ${2:#:vars})${0}
 
 snippet     multiplot
 abbr        set multiplot ... unset multiplot
@@ -135,12 +130,12 @@ options     head
 snippet     fors
 abbr        for [string in "A B C..."]
 options     head
-        for [${1:str} in '${2:#:string list}']
+        for [${1:str} in '${2:#:string list}']${0}
 
 snippet     fori
 abbr        for [intvar = start, end, incr]
 options     head
-        for [${1:i} = ${2:#:start}, ${3:#:end}, ${4:1}
+        for [${1:i} = ${2:#:start}:${3:#:end}${4::1}]${0}
 
 snippet     logscale
 abbr        set logscale <axis>

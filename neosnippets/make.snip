@@ -1,6 +1,10 @@
 snippet     CFLAGS
 options     head
-  CFLAGS=-Wall -g ${0: -llua -lzeromq}
+  CFLAGS=${1:-Wall -g}
+
+snippet     LDLIBS
+options     head
+  LDLIBS=${1:-llua -lzeromq}
 
 snippet     clean:
 options     head
