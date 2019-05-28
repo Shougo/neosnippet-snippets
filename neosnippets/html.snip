@@ -14,14 +14,15 @@ snippet doctypestrict
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 snippet html5
-    <!DOCTYPE html>
-    <html>
+    <!doctype html>
+    <html lang="${1:en}">
         <head>
-            <meta charset="${1:utf-8}">
-            <title>${2}</title>
+            <meta charset="${2:utf-8}">
+            <meta name="viewport" content="${3:width=device-width, initial-scale=1}">
+            <title>${4}</title>
         </head>
         <body>
-            ${3}
+            ${5}
         </body>
     </html>
 
@@ -29,7 +30,7 @@ snippet head
     <head>
         <meta charset="${1:utf-8}">
         <title>${2}</title>
-    <style type="text/css">
+    <style>
         ${3}
     </style>
         ${4}
@@ -45,15 +46,22 @@ snippet metagenerator
     <meta name="generator" content="${1}">${2}
 snippet metadescription
     <meta name="description" content="${1}">${2}
+snippet metaviewport
+    <meta name="viewport" content="${1:width=device-width, initial-scale=1}">
+snippet metatheme
+    <meta name="theme-color" content="#${1}">
 
 snippet scriptcharset
-    <script type="text/javascript" charset="${1:UTF-8}">
+    <script charset="${1:UTF-8}">
     ${2:TARGET}
     </script>${3}
 snippet script
-    <script type="text/javascript">
+    <script>
     ${1:TARGET}
     </script>${2}
+snippet scriptsrc
+abbr    js
+    <script src="${1}"${2: defer}></script>${3}
 
 snippet body
     <body>
@@ -70,11 +78,11 @@ options word
 
 snippet br
 options word
-    <br />
+    <br>
 
 snippet hr
 options word
-    <hr />
+    <hr>
 
 snippet comment
 options word
@@ -116,9 +124,12 @@ snippet blockquote
     ${1}
     </blockquote>
     ${2}
+
 snippet link
 abbr    link stylesheet css
-    <link rel="${1:stylesheet}" href="${2}.css" type="text/css" media="${3:screen}" charset="utf-8">${4}
+    <link rel="${1:stylesheet}" href="${2}.css"${3}>${4}
+snippet manifest
+    <link rel="manifest" href="${1:manifest.json}">${2}
 
 snippet alignl
     text-align="left"
@@ -135,7 +146,7 @@ options word
     <a href="${1}">${2:TARGET}</a>${3}
 snippet ahref_blank
 options word
-    <a href="${1}" target="_blank">${2:TARGET}</a>${3}
+    <a href="${1}" target="_blank" rel="noopener">${2:TARGET}</a>${3}
 snippet ahref_parent
 options word
     <a href="${1}" target="_parent">${2:TARGET}</a>${3}
@@ -235,6 +246,10 @@ snippet button
 options word
     <button>${1:TARGET}</button>${2}
 
+snippet buttonsubmit
+options word
+    <button type="submit">${1:TARGET}</button>${2}
+
 snippet select
 options word
     <select>${1:TARGET}</select>${2}
@@ -289,7 +304,7 @@ options word
 
 snippet img
 options word
-    <img src="${1}">${2}
+    <img src="${1}" alt="${2}">${3}
 
 snippet div
 options word
@@ -297,18 +312,30 @@ options word
 
 snippet header
 options word
-    <div class="header" role="header">
+    <header>
         ${1}
-    </div>
+    </header>
+
+snippet nav
+options word
+    <nav>
+        ${1}
+    </nav>
 
 snippet main
 options word
-    <div class="main" role="main">
+    <main>
         ${1}
-    </div>
+    </main>
 
 snippet footer
 options word
-    <div class="footer" role="contentinfo">
+    <footer>
         ${1}
-    </div>
+    </footer>
+
+snippet details
+    <details${2}>
+        <summary>${1}</summary>
+        ${3}
+    </details>
