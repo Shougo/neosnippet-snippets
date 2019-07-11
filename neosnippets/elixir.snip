@@ -100,3 +100,10 @@ options     head
     describe "${1:describe_name}" do
       ${2:TARGET}
     end
+
+snippet     puts
+    IO.puts(${1})
+
+snippet     p
+abbr        IO.inspect()
+    IO.inspect(${1})
