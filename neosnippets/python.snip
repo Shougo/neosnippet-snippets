@@ -9,6 +9,7 @@ snippet     class
 abbr        class Class(...): ...
 options     head
 	class ${1:#:name}(${2:object}):
+
 		def __init__(self, ${3}):
 			${0:pass}
 
@@ -17,6 +18,7 @@ abbr        class Class(...): "..."
 options     head
 	class ${1:#:name}(${2:object}):
 		"""${3:#:class documentation}"""
+
 		def __init__(self, ${4}):
 			"""${5:#:__init__ documentation}"""
 			${0:pass}
