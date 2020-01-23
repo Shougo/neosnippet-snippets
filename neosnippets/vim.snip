@@ -125,18 +125,6 @@ options     head
       ${0}
     endfunction
 
-snippet  save_cpoptions
-abbr     let s:save_cpo = &cpo | set cpo&vim
-alias    s:save_cpo cpoptions
-options     head
-    let s:save_cpo = &cpo
-    set cpo&vim
-
-    ${0}
-
-    let &cpo = s:save_cpo
-    unlet s:save_cpo
-
 snippet g:loaded
 abbr    if exists('g:loaded_{plugin-name}')
 alias   loaded
