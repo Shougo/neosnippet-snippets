@@ -19,6 +19,24 @@ abbr enum {}
         ${0:TARGET}
     }
 
+snippet set
+    public void set${1:Name}(${2:String} ${3:name}) {
+    this.$3 = $3;
+    }${0:TARGET}
+
+snippet get
+    public ${1:String} get${2:Name}() {
+    return $2;
+    }${0:TARGET}
+
+snippet setget
+    public void set${1:Name}(${2:String} ${3:name}) {
+    this.$3 = $3;
+    }
+    public $2 get$1() {
+    return $1;
+    }${0:TARGET}
+
 snippet var
     ${1:#:type} ${2:#:var}${3};
 
