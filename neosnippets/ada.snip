@@ -7,15 +7,15 @@ snippet     package
 abbr        package {NAME} is {...} end
 options     head
 	package ${1} is
-                ${0}
-        end $1;
+		${0}
+	end $1;
 
 
 snippet     package_body
 abbr        package body {NAME} is {...} end
 options     head
 	package body ${1} is
-                ${0}
+		${0}
 	end $1;
 
 snippet     entry
@@ -271,34 +271,34 @@ snippet     exit_when
 abbr        exit when
 options     head
 	exit when ${1};
-        ${0}
+	${0}
 
 snippet     put
 abbr        Ada.Text_IO.Put
 options     head
 	Ada.Text_IO.Put(${1});
-        ${0}
+	${0}
 
 snippet     put_line
 abbr        Ada.Text_IO.Put_Line
 options     head
 	Ada.Text_IO.Put_Line(${1});
-        ${0}
+	${0}
 
 snippet     get
 abbr        Ada.Text_IO.Get
 options     head
 	Ada.Text_IO.Get(${1});
-        ${0}
+	${0}
 
 snippet     get_line
 abbr        Ada.Text_IO.Get_Line
 options     head
 	Ada.Text_IO.Get_Line(${1});
-        ${0}
+	${0}
 
 snippet     newline
 abbr        Ada.Text_IO.New_Line
 options     head
 	Ada.Text_IO.New_Line(${1:1});
-        ${0}
+	${0}

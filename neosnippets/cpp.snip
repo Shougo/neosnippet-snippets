@@ -68,9 +68,9 @@ abbr        static_assert(,"")
     static_assert( ${1}, "${2}" );${0}
 
 delete      namespace
-options     head
 snippet     namespace
 abbr        namespace {}
+options     head
     namespace ${1:#:name} {
         ${0:TARGET}
     } // namespace $1
