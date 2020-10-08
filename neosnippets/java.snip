@@ -185,8 +185,14 @@ snippet main
 
 
 snippet println
+alias sout
 options word
     System.out.println(${1});
+
+snippet printf
+alias souf
+options word
+    System.out.printf("${1}", ${2});
 
 snippet print
 options word
