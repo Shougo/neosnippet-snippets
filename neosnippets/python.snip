@@ -151,6 +151,12 @@ abbr        import ipdb..
 snippet     pudb
 abbr        import pudb..
 	import pudb; pudb.set_trace()
+	
+snippet     qtpdb
+abbr        removeInputHook...pdb
+	from PyQt5.QtCore import pyqtRemoveInputHook
+	pyqtRemoveInputHook()
+	import pdb; pdb.set_trace()
 
 snippet     ipy
 abbr        import ipython..
