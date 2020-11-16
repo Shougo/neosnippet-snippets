@@ -120,7 +120,7 @@ abbr        enum {}
 # hard-tab is necessary; C indent doesn't support this.
 snippet     main
 options     head
-	int main(int argc, char const* argv[])
+	int main(int argc, char* argv[])
 	{
 		${0:TARGET}
 		return 0;
@@ -129,7 +129,7 @@ options     head
 snippet     helloworld
 options     head
     #include <stdio.h>
-    int main(int argc, char const* argv[])
+    int main(int argc, char* argv[])
     {
         puts("hello, world!");
         return 0;
