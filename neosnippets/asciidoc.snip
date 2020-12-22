@@ -1,0 +1,165 @@
+# See https://asciidoctor.org/docs/asciidoc-syntax-quick-reference/
+
+snippet doc
+abbr Start a new document
+options head
+    = ${1:Document Name}
+    ${2:Alice <alice@example.com>}
+    ${3:Revision line}
+    :toc:
+    :imagesdir: img/
+    :homepage: https://www.example.com
+    :icons: font
+    :data-uri:
+
+    ${0}
+
+snippet source
+abbr Add a source code block
+options head
+    [source,${1:language}]
+    ----
+    ${0}
+    ----
+
+snippet quote
+abbr Add a quote block
+options head
+    [quote, ${1:Name}, ${2:Occasion}}]
+    ____
+    ${0}
+    ____
+
+snippet literalblock
+options head
+    ....
+    ${0}
+    ....
+
+snippet bold
+abbr *bold*
+options word
+    *${1}*${0}
+
+snippet italic
+abbr _italic_
+options word
+    _${1}_${0}
+
+snippet monospace
+abbr `monospace`
+options word
+    `${1}`${0}
+
+snippet codespan
+abbr `+codespan+`
+options word
+    `+${1}+`${0}
+
+snippet verb
+abbr +verbatim+
+options word
+    +${1}+${0}
+
+snippet heading
+abbr == heading
+options head
+    [#${1:Id}]
+    ==${2} ${3:Title}
+
+snippet inc
+abbr include::
+options head
+    include::${1:example.doc}[]${0}
+
+snippet hrule
+abbr horizontal rule
+options head
+    '''
+    ${0}
+
+snippet pagebreak
+abbr page break
+options head
+    <<<
+    ${0}
+
+snippet def
+abbr definition
+options head
+    ${1:definiendum}::
+    ${2:definiens}
+
+snippet table
+abbr table
+options head
+    [cols="${1}", options="header"]
+    |===
+    |${2:row1-col1}
+    ${0}
+
+    |===
+
+snippet tablecsv
+alias csvtable
+abbr CSV table
+options head
+    [%header,format=csv]
+    |===
+    ${0}
+    |===
+
+snippet link
+alias extlink
+abbr External link
+options word
+    ${1:https://www.example.org}[${2:Text}]${0}
+
+snippet linkrel
+abbr Relative link
+options word
+    link:${1:/example.pdf}[${2:Text}]${0}
+
+snippet mailto
+abbr mailto link
+options word
+    mailto:${1:alice@example.com}[${2:Alice}]${0}
+
+snippet anchor
+options word
+    [[${1:id}]]${0}
+
+snippet ref
+abbr reference to anchor
+options word
+    <<${1:id}>>${0}
+
+snippet image
+options head
+    image::${1:example.jpg}[${2:Description}]
+    ${0}
+
+snippet imagecenter
+abbr Centered image
+options head
+    image::${1:example.jpg}[${2:Description},align="center"]
+    ${0}
+
+snippet imageinline
+abbr Inline image
+options word
+    image:${1:example.jpg}[${2:Description}]${0}
+
+snippet footnote
+options word
+    .footnote:[${1:footnotetext}]${0}
+
+snippet bib
+abbr bibliography
+options head
+    [bibliography]
+    == References
+
+    - [[${1:id}]] ${2:Entry}
+    ${0}
+
