@@ -15,6 +15,7 @@ options head
     ${0}
 
 snippet source
+alias block-source
 abbr Add a source code block
 options head
     [source,${1:language}]
@@ -23,6 +24,7 @@ options head
     ----
 
 snippet quote
+alias block-quote
 abbr Add a quote block
 options head
     [quote, ${1:Name}, ${2:Occasion}}]
@@ -31,6 +33,7 @@ options head
     ____
 
 snippet literalblock
+alias block-literal
 options head
     ....
     ${0}
@@ -49,12 +52,12 @@ options word
 snippet monospace
 abbr `monospace`
 options word
-    `${1}`${0}
+    \`${1}\`${0}
 
 snippet codespan
 abbr `+codespan+`
 options word
-    `+${1}+`${0}
+    \`+${1}+\`${0}
 
 snippet verb
 abbr +verbatim+
