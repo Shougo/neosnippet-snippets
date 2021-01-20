@@ -16,7 +16,7 @@ options head
 
 snippet source
 alias block-source
-abbr Add a source code block
+abbr source code block --- source ---
 options head
     [source,${1:language}]
     ----
@@ -25,7 +25,7 @@ options head
 
 snippet quote
 alias block-quote
-abbr Add a quote block
+abbr quote block --- text ---
 options head
     [quote, ${1:Name}, ${2:Occasion}}]
     ____
@@ -34,6 +34,7 @@ options head
 
 snippet literalblock
 alias block-literal
+abbr literal block ... text ...
 options head
     ....
     ${0}
@@ -82,7 +83,7 @@ options head
     ${0}
 
 snippet inc
-abbr include::
+abbr include::example.doc
 options head
     include::${1:example.doc}[]${0}
 
@@ -156,22 +157,24 @@ options word
     <<${1:id}>>${0}
 
 snippet image
+abbr image::file[desc]
 options head
     image::${1:example.jpg}[${2:Description}]
     ${0}
 
 snippet imagecenter
-abbr Centered image
+abbr Centered image::file[desc]
 options head
     image::${1:example.jpg}[${2:Description},align="center"]
     ${0}
 
 snippet imageinline
-abbr Inline image
+abbr Inline image:file[desc]
 options word
     image:${1:example.jpg}[${2:Description}]${0}
 
 snippet footnote
+abbr footnote
 options word
     .footnote:[${1:footnotetext}]${0}
 
