@@ -65,10 +65,21 @@ options word
     +${1}+${0}
 
 snippet heading
-abbr == heading
+alias section
+abbr == heading on level 2
 options head
-    [#${1:Id}]
-    ==${2} ${3:Title}
+    == ${1:Title}
+
+    ${0}
+
+snippet heading-anchor
+alias section-anchor
+abbr == heading on level 2 with anchor
+options head
+    [#${2:Id}]
+    == ${1:Title}
+
+    ${0}
 
 snippet inc
 abbr include::
