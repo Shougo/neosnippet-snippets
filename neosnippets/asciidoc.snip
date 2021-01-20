@@ -16,7 +16,7 @@ options head
 
 snippet source
 alias block-source
-abbr Add a source code block
+abbr source code block --- source ---
 options head
     [source,${1:language}]
     ----
@@ -25,7 +25,7 @@ options head
 
 snippet quote
 alias block-quote
-abbr Add a quote block
+abbr quote block --- text ---
 options head
     [quote, ${1:Name}, ${2:Occasion}}]
     ____
@@ -34,6 +34,7 @@ options head
 
 snippet literalblock
 alias block-literal
+abbr literal block ... text ...
 options head
     ....
     ${0}
@@ -65,13 +66,24 @@ options word
     +${1}+${0}
 
 snippet heading
-abbr == heading
+alias section
+abbr == heading on level 2
 options head
-    [#${1:Id}]
-    ==${2} ${3:Title}
+    == ${1:Title}
+
+    ${0}
+
+snippet heading-anchor
+alias section-anchor
+abbr == heading on level 2 with anchor
+options head
+    [#${2:Id}]
+    == ${1:Title}
+
+    ${0}
 
 snippet inc
-abbr include::
+abbr include::example.doc
 options head
     include::${1:example.doc}[]${0}
 
@@ -129,8 +141,15 @@ options word
     mailto:${1:alice@example.com}[${2:Alice}]${0}
 
 snippet anchor
+abbr [[id]] text
 options word
     [[${1:id}]]${0}
+
+snippet block-anchor
+alias anchorblock
+abbr [#anchor] #text#, itemize, ...
+options head
+    [#${1:Id}] ${0}
 
 snippet ref
 abbr reference to anchor
@@ -138,22 +157,24 @@ options word
     <<${1:id}>>${0}
 
 snippet image
+abbr image::file[desc]
 options head
     image::${1:example.jpg}[${2:Description}]
     ${0}
 
 snippet imagecenter
-abbr Centered image
+abbr Centered image::file[desc]
 options head
     image::${1:example.jpg}[${2:Description},align="center"]
     ${0}
 
 snippet imageinline
-abbr Inline image
+abbr Inline image:file[desc]
 options word
     image:${1:example.jpg}[${2:Description}]${0}
 
 snippet footnote
+abbr footnote
 options word
     .footnote:[${1:footnotetext}]${0}
 
