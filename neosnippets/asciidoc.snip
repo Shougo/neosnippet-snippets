@@ -129,8 +129,15 @@ options word
     mailto:${1:alice@example.com}[${2:Alice}]${0}
 
 snippet anchor
+abbr [[id]] text
 options word
     [[${1:id}]]${0}
+
+snippet block-anchor
+alias anchorblock
+abbr [#anchor] #text#, itemize, ...
+options head
+    [#${1:Id}] ${0}
 
 snippet ref
 abbr reference to anchor
