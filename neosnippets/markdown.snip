@@ -1,3 +1,9 @@
+snippet heading
+alias section
+abbr # section heading
+options head
+    # ${0}
+
 snippet link
 abbr [link][]
 options word
@@ -79,3 +85,8 @@ options head
     \`\`\`${1:#:language}
     ${2:#:code }
     \`\`\`
+
+snippet blockquote
+abbr quote block
+options head
+    > ${0}
