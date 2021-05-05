@@ -503,6 +503,17 @@ alias   \begin{column} \column
 	\end{column}
 
 # ========== TikZ ==========
+snippet tikzfig
+alias   figuretikz
+	\begin{figure}[${1}]
+		\centering
+		\begin{tikzpicture}[${2}]
+			${3:TARGET}
+		\end{tikzpicture}
+		\caption{${4}}
+		\label{${5}}
+	\end{figure}
+
 snippet tikzpicture
 alias   \begin{tikzpicture}
 	\begin{tikzpicture}[${1}]
