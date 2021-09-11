@@ -142,13 +142,13 @@ options     head
 snippet     inc
 options     head
 alias       #inc, #include
-    #include <${1:stdio}.h>
+    #include <${1:stdio}.h>${0}
 
 # #include "..."
 snippet     inc2
 options     head
 alias       #inc2, #include2
-    #include "${1}.h"
+    #include "${1}.h"${0}
 
 snippet     #if
 options     head
