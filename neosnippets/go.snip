@@ -123,6 +123,15 @@ options     head
     }
   }
 
+snippet     funcfuzz
+abbr        func Fuzz...(f *testing.F) { ... }
+options     head
+  func Fuzz${1}(${2:f *testing.F}) {
+    f.Fuzz(func(t *testing.T, ${3:b []byte}) {
+      ${4}
+    })
+  }
+
 snippet     testtable
 abbr        var test = {...}{...} for {t.Run(){...}}
 options     head
