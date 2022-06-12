@@ -118,6 +118,46 @@ snippet     filter
 abbr        [x for x in {list} if {condition}]
 	[$1 for ${1:x} in ${2:#:list} if ${3:#:condition}]
 
+snippet     dfs:iterative
+abbr        while work: do {...}
+alias       DFS:iterative
+    def dfs(v, graph):
+        work = [v]
+        seen = set()
+        while work:
+            v = work.pop()
+            if v not in seen:
+                seen.add(v)
+                for u in graph[v]:
+                    # do work
+                    work.append(u)
+
+snippet     dfs:recursive
+abbr        while work: do {...}
+alias       DFS:recursive
+    def dfs(v, seen, graph):
+        if v not in seen:
+            seen.add(v)
+            for u in graph[v]:
+                # do work
+                dfs(u, seen, graph)
+
+snippet     bfs
+abbr        while work: do {...}
+alias       BFS
+    from collections import deque
+
+    def bfs(v, graph):
+        work = deque([v])
+        seen = set()
+        while work:
+            v = work.popLeft()
+            if v not in seen:
+                seen.add(v)
+                for u in graph[v]:
+                    # do work
+                    work.append(u)
+
 snippet     print
 options     word
 	print(${0:#:TARGET})
